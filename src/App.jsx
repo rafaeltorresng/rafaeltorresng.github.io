@@ -123,7 +123,7 @@ function App() {
               className="text-xl font-semibold text-white"
               whileHover={{ scale: 1.02 }}
             >
-              Rafael Torres
+              RT.
             </motion.h1>
             
             {/* Desktop Navigation */}
@@ -391,7 +391,7 @@ function App() {
                 className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 flex flex-col h-full"
               >
                 <img
-                  src={project.image}
+                  src={`${import.meta.env.BASE_URL}${project.image}`}
                   alt={project.title}
                   className="w-full h-48 object-cover"
                   style={{

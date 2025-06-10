@@ -22,7 +22,7 @@ const Hero = ({ scrollToSection }) => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="resume.pdf"
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
                 download="Rafael_Torres_Resume.pdf"
                 className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-lg text-center"
                 whileHover={{ scale: 1.02 }}
@@ -49,7 +49,7 @@ const Hero = ({ scrollToSection }) => {
           >
             <div className="relative">
               <img
-                src="eu.jpg"
+                src={`${import.meta.env.BASE_URL}eu.jpg`}
                 alt="Rafael Torres - Computer Science Student"
                 className="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl border-4 border-white"
                 style={{
