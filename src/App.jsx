@@ -391,7 +391,7 @@ function App() {
                 className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 flex flex-col h-full"
               >
                 <img
-                  src={`${import.meta.env.BASE_URL}${project.image}`}
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover"
                   style={{
