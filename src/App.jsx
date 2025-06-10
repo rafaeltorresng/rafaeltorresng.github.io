@@ -638,7 +638,7 @@ function App() {
               Open to Opportunities
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              I'm always excited to discuss new projects, whether it's machine learning research, full-stack development, or innovative applications of AI. I'm particularly interested in opportunities that combine technology with real-world impact.
+              I'm always eager to dive into new projects—whether it's exploring machine learning, building full-stack solutions, or developing cutting-edge AI applications. I'm especially drawn to opportunities where technology drives meaningful, real-world change.
             </p>
           </motion.div>
         </div>
