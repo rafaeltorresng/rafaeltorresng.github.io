@@ -93,21 +93,21 @@ function App() {
     {
       title: 'TARG: Time-series Analysis Report Generator',
       description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
-      image: '/Targ Presentation.png',
+      image: 'targ-presentation.png',
       tech: ['Python', 'LSTM', 'NLP', 'Web Scraping', 'Time Series', 'Sentiment Analysis'],
       github: 'https://github.com/Vitoreism/TARG'
     },
     {
       title: 'Blonded AI',
       description: 'An intelligent music recommendation system built using Spotify audio embeddings and PCA. Features a sophisticated feature extraction pipeline, similarity computation algorithms, and a personalized recommendation engine with Spotify integration.',
-      image: '/BLONDDD01.png',
+      image: 'blonded-ai.png',
       tech: ['Python', 'Spotify API', 'PCA', 'Audio Processing', 'Machine Learning', 'Embeddings'],
       github: 'https://github.com/rafaeltorresng/Blonded-AI'
     },
     {
       title: 'Brazilian Championship Simulator',
       description: 'A Java and Spring Boot web application designed to simulate the Brazilian Football Championship (Brasileirão). It features dynamic data loading for teams and players, automated match scheduling, realistic game simulation incorporating team strength and randomness, and real-time updates of league standings and top scorer statistics, all accessible via an interactive web interface.',
-      image: '/ADR05.png',
+      image: 'brasileirao-adr.png',
       tech: ['Java', 'Spring Boot', 'OOP', 'Web Application', 'Database', 'Sports Simulation'],
       github: 'https://github.com/arturpereira12/poo_brasileirao'
     }
@@ -193,7 +193,7 @@ function App() {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.a
-                  href="/resume.pdf"
+                  href={`${import.meta.env.BASE_URL}resume.pdf`}
                   download="Rafael_Torres_Resume.pdf"
                   className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-lg text-center"
                   whileHover={{ scale: 1.02 }}
@@ -220,7 +220,7 @@ function App() {
             >
               <div className="relative">
                 <img
-                  src="/eu.jpg"
+                  src={`${import.meta.env.BASE_URL}eu.jpg`}
                   alt="Rafael Torres - Computer Science Student"
                   className="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl border-4 border-white"
                   style={{
