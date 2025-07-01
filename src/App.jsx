@@ -220,12 +220,12 @@ function App() {
             >
               <div className="relative">
                 <img
-                  src={`${import.meta.env.BASE_URL}eu.jpg`}
+                  src={`${import.meta.env.BASE_URL}eu.png`}
                   alt="Rafael Torres - Computer Science Student"
                   className="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl border-4 border-white"
                   style={{
                     objectFit: 'cover',
-                    objectPosition: 'center 20%',
+                    objectPosition: '90% center',
                     transform: 'scale(1.2)'
                   }}
                   onError={(e) => {
