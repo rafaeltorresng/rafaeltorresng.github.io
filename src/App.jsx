@@ -443,47 +443,47 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Left Column - Let's Connect */}
+          <div className="max-w-4xl mx-auto">
+            {/* Contact Information - Centered */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-6">Let's Connect</h3>
+                <h3 className="text-2xl font-semibold text-white mb-6 text-center">Let's Connect</h3>
                 
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-                      <Mail className="text-brand-300" size={20} />
+                <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                  <div className="flex flex-col items-center text-center space-y-3">
+                    <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                      <Mail className="text-brand-300" size={24} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Email</p>
                       <a 
                         href="mailto:rafaeltorresng@gmail.com" 
-                        className="text-gray-400 hover:text-brand-300 transition-colors"
+                        className="text-gray-400 hover:text-brand-300 transition-colors text-sm"
                       >
                         rafaeltorresng@gmail.com
                       </a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-                      <Phone className="text-brand-300" size={20} />
+                  <div className="flex flex-col items-center text-center space-y-3">
+                    <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                      <Phone className="text-brand-300" size={24} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Phone</p>
-                      <p className="text-gray-400">+55 81 98251-2792</p>
+                      <p className="text-gray-400 text-sm">+55 81 98251-2792</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-                      <Linkedin className="text-brand-300" size={20} />
+                  <div className="flex flex-col items-center text-center space-y-3">
+                    <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                      <Linkedin className="text-brand-300" size={24} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">LinkedIn</p>
@@ -491,16 +491,16 @@ function App() {
                         href="https://linkedin.com/in/rafaeltng" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-brand-300 transition-colors"
+                        className="text-gray-400 hover:text-brand-300 transition-colors text-sm"
                       >
                         linkedin.com/in/rafaeltng
                       </a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-                      <Github className="text-brand-300" size={20} />
+                  <div className="flex flex-col items-center text-center space-y-3">
+                    <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                      <Github className="text-brand-300" size={24} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">GitHub</p>
@@ -508,7 +508,7 @@ function App() {
                         href="https://github.com/rafaeltorresng" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-brand-300 transition-colors"
+                        className="text-gray-400 hover:text-brand-300 transition-colors text-sm"
                       >
                         github.com/rafaeltorresng
                       </a>
@@ -517,9 +517,9 @@ function App() {
                 </div>
               </div>
 
-              <div>
+              <div className="text-center">
                 <h4 className="text-lg font-medium text-white mb-4">Languages</h4>
-                <div className="space-y-2">
+                <div className="flex justify-center space-x-8">
                   <div className="flex items-center space-x-3">
                     <span className="text-lg">🇧🇷</span>
                     <span className="text-gray-300">Portuguese (Native)</span>
@@ -534,92 +534,6 @@ function App() {
                   </div>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Right Column - Send a Message */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gray-800 p-8 rounded-2xl border border-gray-700"
-            >
-              <h3 className="text-2xl font-semibold text-white mb-6">Send a Message</h3>
-              
-              <form 
-                className="space-y-6"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.target);
-                  const name = formData.get('name');
-                  const email = formData.get('email');
-                  const subject = formData.get('subject');
-                  const message = formData.get('message');
-                  
-                  const mailtoLink = `mailto:rafaeltorresng@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-                  window.location.href = mailtoLink;
-                }}
-              >
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-gray-700 text-white transition-colors"
-                    placeholder="Your name"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-gray-700 text-white transition-colors"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-gray-700 text-white transition-colors"
-                    placeholder="What's this about?"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={5}
-                    required
-                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-gray-700 text-white transition-colors resize-none"
-                    placeholder="Tell me about your project, opportunity, or just say hello!"
-                  />
-                </div>
-                
-                <motion.button
-                  type="submit"
-                  className="w-full px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors font-medium"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Send Message
-                </motion.button>
-              </form>
             </motion.div>
           </div>
         </div>
