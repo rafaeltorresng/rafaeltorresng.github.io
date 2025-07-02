@@ -60,7 +60,7 @@ function App() {
 
   const experience = [
     {
-      title: 'AI Researcher Intern',
+      title: 'AI Engineering Intern',
       company: 'MGI Tech (in partnership with LASER and LAGID/UFPB)',
       period: '04/2025 - Present',
       description: 'Implementing AI models into company systems, collaborating with engineering teams to integrate machine learning solutions into production environments. Contributing to system architecture, data engineering, and model deployment across multiple domains.',
