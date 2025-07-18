@@ -17,6 +17,7 @@ import {
   Server,
   Phone
 } from 'lucide-react'
+import TiltedCard from './components/TiltedCard'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -250,9 +251,8 @@ function App() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
@@ -261,9 +261,8 @@ function App() {
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
             className="prose prose-lg max-w-none"
           >
             <div className="text-gray-300 leading-relaxed text-lg">
@@ -280,9 +279,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -295,9 +293,8 @@ function App() {
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="bg-gray-900 p-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-gray-800 group"
               >
                 <service.icon className="text-brand-300 mb-4" size={28} />
@@ -318,9 +315,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -333,9 +329,8 @@ function App() {
               <motion.div
                 key={exp.title}
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-md"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
@@ -367,9 +362,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -385,20 +379,21 @@ function App() {
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 flex flex-col h-full"
               >
-                <img
-                  src={`${import.meta.env.BASE_URL}${project.image}`}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                  style={{
-                    objectPosition: project.title === 'Blonded AI' || project.title === 'Brazilian Championship Simulator' 
-                      ? 'center top' 
-                      : 'center center'
-                  }}
+                <TiltedCard
+                  imageSrc={`${import.meta.env.BASE_URL}${project.image}`}
+                  altText={project.title}
+                  containerHeight="192px"
+                  containerWidth="100%"
+                  imageHeight="192px"
+                  imageWidth="100%"
+                  scaleOnHover={1.05}
+                  rotateAmplitude={10}
+                  showMobileWarning={false}
+                  showTooltip={false}
                 />
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl font-semibold text-white mb-2">
@@ -430,9 +425,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -447,9 +441,8 @@ function App() {
             {/* Contact Information - Centered */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
               className="space-y-8"
             >
               <div>
@@ -544,9 +537,8 @@ function App() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Open to Opportunities
