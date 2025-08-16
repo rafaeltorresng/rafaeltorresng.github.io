@@ -19,6 +19,7 @@ import {
 } from 'lucide-react'
 import TiltedCard from './components/TiltedCard'
 
+
 function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -43,6 +44,11 @@ function App() {
 
   const services = [
     {
+      title: 'Software Engineering',
+      description: 'Building robust, scalable applications using modern development practices, clean code principles, and efficient architectures.',
+      icon: Code
+    },
+    {
       title: 'Data Science',
       description: 'Analyzing complex datasets to extract meaningful insights and patterns using statistical methods and visualization techniques.',
       icon: Database
@@ -51,20 +57,22 @@ function App() {
       title: 'Machine Learning',
       description: 'Implementing computer vision and data analysis solutions that solve complex real-world challenges using AI algorithms.',
       icon: Brain
-    },
-    {
-      title: 'Software Engineering',
-      description: 'Building robust, scalable applications using modern development practices, clean code principles, and efficient architectures.',
-      icon: Code
     }
   ]
 
   const experience = [
     {
       title: 'AI Engineering Intern',
-      company: 'MGI Tech (in partnership with LASER and LAGID/UFPB)',
+      company: 'MGITech',
       period: '04/2025 - Present',
       description: 'Implementing AI models into company systems, collaborating with engineering teams to integrate machine learning solutions into production environments. Contributing to system architecture, data engineering, and model deployment across multiple domains.',
+      current: true
+    },
+    {
+      title: 'Student Member',
+      company: 'TAIL (Technology and Artificial Intelligence League)',
+      period: '06/2025 - Present',
+      description: 'Tail is the first AI student league in the northeast region of Brazil. As a Trainee, I am advancing my skills in Machine Learning, Data Science, and Deep Learning by developing diverse AI and technology projects.',
       current: true
     },
     {
@@ -92,7 +100,7 @@ function App() {
 
   const projects = [
     {
-      title: 'TARG: Time-series Analysis Report Generator',
+      title: 'TARG (Time-series Analysis Report Generator)',
       description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
       image: 'targ-presentation.png',
       tech: ['Python', 'LSTM', 'NLP', 'Web Scraping', 'Time Series', 'Sentiment Analysis'],
@@ -106,8 +114,15 @@ function App() {
       github: 'https://github.com/rafaeltorresng/Blonded-AI'
     },
     {
+      title: 'GuardAzul',
+      description: 'A mobile app designed to protect the coastal ecosystems of Paraíba, Brazil. This project integrates a React Native (Expo) mobile application with a Python (FastAPI) RESTful API and a PostgreSQL database. The platform leverages Google\'s AI (Gemini and Vision) to power an informative chatbot and to automatically validate environmental reports submitted by users.',
+      image: 'Login(1).png',
+      tech: ['React Native', 'FastAPI', 'PostgreSQL', 'Google AI', 'Docker', 'TypeScript'],
+      github: 'https://github.com/luigischmitt/GuardAzul'
+    },
+    {
       title: 'Brazilian Championship Simulator',
-      description: 'A Java and Spring Boot web application designed to simulate the Brazilian Football Championship (Brasileirão). It features dynamic data loading for teams and players, automated match scheduling, realistic game simulation incorporating team strength and randomness, and real-time updates of league standings and top scorer statistics, all accessible via an interactive web interface.',
+      description: 'A comprehensive football simulation platform that recreates the Brazilian Championship experience. Features intelligent match algorithms, real-time league standings, and dynamic team management with an intuitive web interface built on Java Spring Boot.',
       image: 'brasileirao-adr.png',
       tech: ['Java', 'Spring Boot', 'OOP', 'Web Application', 'Database', 'Sports Simulation'],
       github: 'https://github.com/arturpereira12/poo_brasileirao'
@@ -188,7 +203,7 @@ function App() {
                   Rafael Torres
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-300 mt-4 leading-relaxed">
-                  Computer Science student passionate about exploring the realms of and Data Science, Software Development and AI Engineering.
+                  Computer Science student passionate about exploring the realms of Software Engineering and Machine Learning.
                 </p>
               </div>
               
@@ -247,12 +262,12 @@ function App() {
       </section>
 
       {/* About Me Section */}
-      <section className="py-20 bg-black">
+      <section id="about" className="py-20 bg-black">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
@@ -262,7 +277,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="prose prose-lg max-w-none"
           >
             <div className="text-gray-300 leading-relaxed text-lg">
@@ -280,7 +295,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -294,7 +309,7 @@ function App() {
                 key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: 1.6 + index * 0.1 }}
                 className="bg-gray-900 p-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-gray-800 group"
               >
                 <service.icon className="text-brand-300 mb-4" size={28} />
@@ -311,12 +326,12 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="about" className="py-20 bg-black">
+      <section id="experience" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 2.0 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -330,7 +345,7 @@ function App() {
                 key={exp.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: 2.2 + index * 0.1 }}
                 className="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-md"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
@@ -359,12 +374,12 @@ function App() {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.8, delay: 2.8 }}
+            className="text-center mb-16 px-6 lg:px-8"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Featured Projects
@@ -374,48 +389,68 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 flex flex-col h-full"
-              >
-                <TiltedCard
-                  imageSrc={`${import.meta.env.BASE_URL}${project.image}`}
-                  altText={project.title}
-                  containerHeight="192px"
-                  containerWidth="100%"
-                  imageHeight="192px"
-                  imageWidth="100%"
-                  scaleOnHover={1.05}
-                  rotateAmplitude={10}
-                  showMobileWarning={false}
-                  showTooltip={false}
-                />
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
-                    {project.description}
-                  </p>
-                  <div className="flex space-x-4 mt-auto">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-400 hover:text-brand-300 transition-colors"
-                    >
-                      <Github size={16} className="mr-1" />
-                      View on GitHub
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          {/* Horizontal Scrollable Projects Container */}
+          <div className="relative">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex space-x-8 pb-4 px-6" style={{ width: 'max-content' }}>
+                {projects.map((project, index) => (
+                  <motion.div
+                    key={project.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 3.0 + index * 0.1 }}
+                    className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700"
+                    style={{ minWidth: '350px', maxWidth: '350px', height: '550px', display: 'flex', flexDirection: 'column' }}
+                  >
+                    {/* Fixed Image Container */}
+                    <div className="relative" style={{ height: '192px', flexShrink: 0 }}>
+                      <TiltedCard
+                        imageSrc={`${import.meta.env.BASE_URL}${project.image}`}
+                        altText={project.title}
+                        containerHeight="192px"
+                        containerWidth="100%"
+                        imageHeight="192px"
+                        imageWidth="100%"
+                        scaleOnHover={1.05}
+                        rotateAmplitude={10}
+                        showMobileWarning={false}
+                        showTooltip={false}
+                      />
+                    </div>
+                    
+                    {/* Fixed Content Container */}
+                    <div className="p-6" style={{ height: 'calc(550px - 192px)', display: 'flex', flexDirection: 'column' }}>
+                      <h3 className="text-xl font-semibold text-white mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 mb-6 leading-relaxed text-sm" style={{ flex: 1, overflow: 'hidden' }}>
+                        {project.description}
+                      </p>
+                      
+                      <div className="flex items-center justify-between mt-auto">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-gray-400 hover:text-brand-300 transition-colors"
+                        >
+                          <Github size={16} className="mr-2" />
+                          View Code
+                        </a>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-500 hover:text-brand-300 transition-colors cursor-pointer"
+                        >
+                          <ExternalLink size={16} />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -426,7 +461,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 3.6 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -442,7 +477,7 @@ function App() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 3.8 }}
               className="space-y-8"
             >
               <div>
@@ -538,7 +573,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 4.0 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Open to Opportunities
