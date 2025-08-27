@@ -218,7 +218,7 @@ function App() {
               >
                 <motion.div
                   className={`w-4 h-4 bg-white rounded-full shadow-lg flex items-center justify-center`}
-                  animate={{ x: darkMode ? 0 : 16 }}
+                  animate={{ x: darkMode ? 0 : 24 }}
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 >
                   {darkMode ? (
