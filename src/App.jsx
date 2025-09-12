@@ -21,12 +21,12 @@ import TiltedCard from './components/TiltedCard'
 
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true) // Start in dark mode
+  const [darkMode, setDarkMode] = useState(false) // Start in light mode
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode')
-    const isDark = savedMode === null ? true : savedMode === 'true' // Default to dark mode
+    const isDark = savedMode === null ? false : savedMode === 'true' // Default to light mode
     setDarkMode(isDark)
     document.documentElement.classList.toggle('dark', isDark)
     document.documentElement.classList.toggle('light', !isDark)
@@ -73,35 +73,40 @@ function App() {
       company: 'MGITech',
       period: '04/2025 - Present',
       description: 'Implementing AI models into company systems, collaborating with engineering teams to integrate machine learning solutions into production environments. Contributing to system architecture, data engineering, and model deployment across multiple domains.',
-      current: true
+      current: true,
+      logo: 'mgitech-logo.jpeg'
     },
     {
       title: 'Student Member',
       company: 'TAIL (Technology and Artificial Intelligence League)',
       period: '06/2025 - Present',
       description: 'Tail is the first AI student league in the northeast region of Brazil. As a Trainee, I am advancing my skills in Machine Learning, Data Science, and Deep Learning by developing diverse AI and technology projects.',
-      current: true
+      current: true,
+      logo: 'tail.png'
     },
     {
       title: 'Volunteer Researcher',
       company: 'TRIL Lab',
       period: '12/2024 - 04/2025',
       description: 'Assisted in AI research projects including data collection, preprocessing, and exploratory analysis. Implemented multi-agent systems for sales pipelines and contact automation. Learned machine learning techniques and mastered CrewAI frameworks.',
-      current: false
+      current: false,
+      logo: 'tril-logo.png'
     },
     {
-      title: 'Treinee',
+      title: 'Trainee',
       company: 'Trilha Program',
       period: '08/2024 - 12/2024',
       description: 'Developed foundational skills in artificial intelligence, programming logic, and Python libraries (pandas, NumPy). Learned essential software development tools and best practices for mentorship. Led the TARG project for stock-forecasting website development.',
-      current: false
+      current: false,
+      logo: 'trilha.png'
     },
     {
       title: 'Workshop Facilitator',
       company: 'LAGID/UFPB GPT API Workshop',
       period: '2024',
       description: 'Conducted comprehensive workshop on GPT API usage, covering authentication, endpoint calls, and prompting strategies. Implemented a Database-Integrated Chatbot project demonstrating practical applications of AI integration.',
-      current: false
+      current: false,
+      logo: 'ufpb-logo.png'
     }
   ]
 
@@ -161,7 +166,7 @@ function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['About', 'Projects', 'Contact'].map((item) => (
+              {['About', 'Education', 'Projects', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -255,7 +260,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="px-6 py-4 space-y-2">
-              {['About', 'Projects', 'Contact'].map((item) => (
+              {['About', 'Education', 'Projects', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -387,8 +392,66 @@ function App() {
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
               <p>
-              I am a Computer Science undergraduate at the Federal University of Paraíba (UFPB), passionate about solving real-world problems through intelligent systems, with a focus on Data Science and Software Development; currently working as an AI Research Intern at MGI Tech (in collaboration with LASER and LAGID labs), developing machine learning applications for demand forecasting and sentiment analysis, while also leading personal projects like TARG (a stock prediction and news sentiment analysis platform) and Blonded AI (a music recommendation system using Spotify embeddings and PCA), reflecting my dedication to combining technical knowledge with creativity and usability.
+              I am a Computer Science undergraduate at the Federal University of Paraíba (UFPB), specializing in artificial intelligence and software engineering with a strong foundation in data science methodologies. Currently serving as an AI Research Intern at MGI Tech, where I collaborate by developing machine learning solutions for enterprise applications. My academic and professional journey reflects a commitment to bridging theoretical computer science concepts with practical implementations that address complex, real-world challenges in the technology landscape. My goal is to contribute to the development of systems that drive innovation and have a real impact on society.
               </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className={`py-16 transition-colors duration-300 ${
+        darkMode ? 'bg-black' : 'bg-white'
+      }`}>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="text-center mb-12"
+          >
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}>Education</h2>
+            <div className="w-24 h-1 bg-brand-600 mx-auto"></div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className={`p-6 rounded-2xl border shadow-md transition-colors duration-300 max-w-2xl mx-auto ${
+              darkMode 
+                ? 'bg-gray-800 border-gray-700' 
+                : 'bg-white border-gray-200'
+            }`}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 text-center sm:text-left">
+              <img
+                src={`${import.meta.env.BASE_URL}ufpb-logo.png`}
+                alt="UFPB Logo"
+                className="w-16 h-16 object-contain rounded-lg mx-auto sm:mx-0"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <div className="flex-1">
+                <h3 className={`text-xl font-semibold transition-colors duration-300 ${
+                  darkMode ? 'text-white' : 'text-gray-900'
+                }`}>
+                  Bachelor of Computer Science
+                </h3>
+                <p className={`font-medium transition-colors duration-300 ${
+                  darkMode ? 'text-brand-300' : 'text-brand-600'
+                }`}>
+                  Federal University of Paraíba (UFPB)
+                </p>
+                <p className={`text-sm transition-colors duration-300 ${
+                  darkMode ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  2024 - Present
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -473,34 +536,48 @@ function App() {
                     : 'bg-white border-gray-200'
                 }`}
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className={`text-xl font-semibold transition-colors duration-300 ${
-                      darkMode ? 'text-white' : 'text-gray-900'
+                <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-4 sm:space-y-0">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${exp.logo}`}
+                    alt={`${exp.company} Logo`}
+                    className={`w-16 h-16 object-contain rounded-lg flex-shrink-0 mx-auto sm:mx-0 ${
+                      exp.logo === 'tril-logo.png' || exp.logo === 'tail.png' ? 'bg-white p-1' : ''
+                    }`}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                  <div className="flex-1 text-center sm:text-left">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div>
+                        <h3 className={`text-xl font-semibold transition-colors duration-300 ${
+                          darkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
+                          {exp.title} at {exp.company}
+                        </h3>
+                                             {exp.current && (
+                           <span className={`inline-block px-3 py-1 text-sm rounded-full mt-2 font-medium transition-colors duration-300 ${
+                             darkMode 
+                               ? 'bg-brand-900 text-brand-200' 
+                               : 'bg-brand-100 text-brand-800'
+                           }`}>
+                             Current
+                           </span>
+                         )}
+                      </div>
+                      <span className={`font-medium mt-2 md:mt-0 transition-colors duration-300 ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className={`leading-relaxed transition-colors duration-300 ${
+                      darkMode ? 'text-gray-300' : 'text-gray-600'
                     }`}>
-                      {exp.title} at {exp.company}
-                    </h3>
-                                         {exp.current && (
-                       <span className={`inline-block px-3 py-1 text-sm rounded-full mt-2 font-medium transition-colors duration-300 ${
-                         darkMode 
-                           ? 'bg-brand-900 text-brand-200' 
-                           : 'bg-brand-100 text-brand-800'
-                       }`}>
-                         Current
-                       </span>
-                     )}
+                      {exp.description}
+                    </p>
                   </div>
-                  <span className={`font-medium mt-2 md:mt-0 transition-colors duration-300 ${
-                    darkMode ? 'text-gray-400' : 'text-gray-600'
-                  }`}>
-                    {exp.period}
-                  </span>
                 </div>
-                <p className={`leading-relaxed transition-colors duration-300 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  {exp.description}
-                </p>
               </motion.div>
             ))}
           </div>
