@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { Code, Database, Brain } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Canvas } from '@react-three/fiber'
+import DataSculpture from '../components/3d/DataSculpture'
 
 const Home = ({ darkMode }) => {
     const services = [
@@ -220,6 +222,16 @@ const Home = ({ darkMode }) => {
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Data Sculpture Section */}
+            <section className={`h-[600px] w-full relative overflow-hidden transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'}`}>
+                <div className="absolute inset-0">
+                    <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+                        <ambientLight intensity={0.5} />
+                        <DataSculpture darkMode={darkMode} />
+                    </Canvas>
                 </div>
             </section>
         </div>

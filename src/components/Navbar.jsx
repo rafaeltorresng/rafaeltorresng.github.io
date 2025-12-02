@@ -15,8 +15,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
     return (
         <nav className={`fixed top-0 w-full backdrop-blur-sm z-50 border-b transition-colors duration-300 ${darkMode
-                ? 'bg-black/95 border-gray-800'
-                : 'bg-white/95 border-gray-200'
+            ? 'bg-black/95 border-gray-800'
+            : 'bg-white/95 border-gray-200'
             }`}>
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex justify-between items-center py-4">
@@ -35,8 +35,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 key={item.name}
                                 to={item.path}
                                 className={({ isActive }) => `transition-colors font-medium ${isActive
-                                        ? (darkMode ? 'text-white' : 'text-gray-900')
-                                        : (darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900')
+                                    ? (darkMode ? 'text-white' : 'text-gray-900')
+                                    : (darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900')
                                     }`}
                             >
                                 {item.name}
@@ -74,22 +74,23 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
                     <div className="flex items-center space-x-4 md:hidden">
                         {/* Mobile Dark/Light Mode Toggle */}
+                        {/* Mobile Dark/Light Mode Toggle */}
                         <motion.button
                             onClick={toggleDarkMode}
-                            className={`relative w-12 h-6 rounded-full p-1 transition-colors duration-300 focus:outline-none ${darkMode ? 'bg-gray-700' : 'bg-blue-400'
+                            className={`relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none ${darkMode ? 'bg-gray-700' : 'bg-blue-400'
                                 }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
                             <motion.div
-                                className={`w-4 h-4 bg-white rounded-full shadow-lg flex items-center justify-center`}
+                                className={`w-6 h-6 bg-white rounded-full shadow-lg flex items-center justify-center`}
                                 animate={{ x: darkMode ? 0 : 24 }}
-                                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
                             >
                                 {darkMode ? (
-                                    <Moon size={10} className="text-gray-700" />
+                                    <Moon size={14} className="text-gray-700" />
                                 ) : (
-                                    <Sun size={10} className="text-yellow-500" />
+                                    <Sun size={14} className="text-yellow-500" />
                                 )}
                             </motion.div>
                         </motion.button>
@@ -97,8 +98,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className={`p-2 rounded-lg transition-colors ${darkMode
-                                    ? 'hover:bg-gray-800 text-gray-300 hover:text-white'
-                                    : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
+                                ? 'hover:bg-gray-800 text-gray-300 hover:text-white'
+                                : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
                                 }`}
                         >
                             {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -111,8 +112,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             {isMenuOpen && (
                 <motion.div
                     className={`md:hidden border-t transition-colors duration-300 ${darkMode
-                            ? 'bg-gray-900 border-gray-700'
-                            : 'bg-white border-gray-200'
+                        ? 'bg-gray-900 border-gray-700'
+                        : 'bg-white border-gray-200'
                         }`}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -124,8 +125,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 to={item.path}
                                 onClick={() => setIsMenuOpen(false)}
                                 className={({ isActive }) => `block w-full text-left px-4 py-2 rounded-lg font-medium transition-colors ${isActive
-                                        ? (darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900')
-                                        : (darkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100')
+                                    ? (darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900')
+                                    : (darkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100')
                                     }`}
                             >
                                 {item.name}
