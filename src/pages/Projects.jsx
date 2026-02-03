@@ -234,30 +234,6 @@ const Projects = ({ darkMode }) => {
                                             />
                                         </motion.div>
                                     </motion.div>
-
-                                    {/* Animated particles */}
-                                    {project.pattern !== 'hexagon' && [...Array(3)].map((_, i) => (
-                                        <motion.div
-                                            key={i}
-                                            className={`absolute w-2 h-2 rounded-full ${project.accentColor.replace('text-', 'bg-')}`}
-                                            style={{
-                                                left: `${20 + i * 30}%`,
-                                                top: `${30 + i * 20}%`,
-                                            }}
-                                            animate={{
-                                                y: [-10, 10, -10],
-                                                x: [-5, 5, -5],
-                                                opacity: [0.3, 0.7, 0.3],
-                                                scale: [1, 1.2, 1]
-                                            }}
-                                            transition={{
-                                                duration: 3 + i,
-                                                repeat: Infinity,
-                                                ease: "easeInOut",
-                                                delay: i * 0.5
-                                            }}
-                                        />
-                                    ))}
                                 </div>
 
                                 {/* Project Content */}
