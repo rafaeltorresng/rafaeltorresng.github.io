@@ -62,7 +62,7 @@ const Home = ({ darkMode }) => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className={`p-6 rounded-lg border ${
                                 darkMode
-                                    ? 'bg-gray-900 border-gray-800'
+                                    ? 'bg-[#1a1a1a] border-[#2a2a2a]'
                                     : 'bg-gray-50 border-gray-200'
                             }`}
                         >
@@ -115,7 +115,7 @@ const Home = ({ darkMode }) => {
                                         key={area}
                                         className={`p-4 rounded-lg border transition-all duration-300 hover:shadow-lg ${
                                             darkMode
-                                                ? 'bg-gray-900 border-gray-800 hover:border-gray-700'
+                                                ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
                                                 : 'bg-white border-gray-200 hover:border-gray-300'
                                         }`}
                                     >

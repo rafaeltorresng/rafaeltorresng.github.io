@@ -55,7 +55,7 @@ const Contact = ({ darkMode }) => {
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             className={`p-6 rounded-lg border transition-all duration-300 ${
                                 darkMode
-                                    ? 'bg-gray-900 border-gray-800 hover:border-gray-700'
+                                    ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
                                     : 'bg-white border-gray-200 hover:border-gray-300'
                             }`}
                         >
@@ -64,7 +64,7 @@ const Contact = ({ darkMode }) => {
                                     darkMode ? 'bg-gray-800' : 'bg-gray-100'
                                 }`}>
                                     <info.icon size={20} className={
-                                        darkMode ? 'text-blue-400' : 'text-blue-600'
+                                        darkMode ? 'text-gray-300' : 'text-gray-700'
                                     } />
                                 </div>
                                 <div className="flex-1">
@@ -78,8 +78,8 @@ const Contact = ({ darkMode }) => {
                                             href={info.link}
                                             className={`font-medium transition-colors ${
                                                 darkMode
-                                                    ? 'text-white hover:text-blue-400'
-                                                    : 'text-gray-900 hover:text-blue-600'
+                                                    ? 'text-white hover:text-gray-300'
+                                                    : 'text-gray-900 hover:text-gray-700'
                                             }`}
                                         >
                                             {info.value}
@@ -104,7 +104,7 @@ const Contact = ({ darkMode }) => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className={`p-6 rounded-lg border ${
                         darkMode
-                            ? 'bg-gray-900 border-gray-800'
+                            ? 'bg-[#1a1a1a] border-[#2a2a2a]'
                             : 'bg-gray-50 border-gray-200'
                     }`}
                 >

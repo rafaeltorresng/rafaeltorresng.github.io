@@ -103,8 +103,8 @@ const Experiences = ({ darkMode }) => {
                             whileHover={{ x: 4 }}
                             className={`elegant-card p-6 rounded-lg border transition-all duration-300 hover:shadow-xl group ${
                                 darkMode
-                                    ? 'bg-gray-900 border-gray-800 hover:border-gray-700'
-                                    : 'bg-white border-gray-200 hover:border-gray-300'
+                                    ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
+                                    : 'bg-gray-50 border-gray-200 hover:border-gray-300'
                             }`}
                         >
                             <div className="flex items-start gap-4">
@@ -137,7 +137,7 @@ const Experiences = ({ darkMode }) => {
                                                 {exp.title}
                                             </h3>
                                             <p className={`font-medium ${
-                                                darkMode ? 'text-blue-400' : 'text-blue-600'
+                                                darkMode ? 'text-gray-300' : 'text-gray-700'
                                             }`}>
                                                 {exp.company}
                                             </p>
