@@ -111,15 +111,34 @@ const Experiences = ({ darkMode }) => {
                                 {/* Logo */}
                                 <div className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center bg-white border border-gray-200 overflow-hidden">
                                     {exp.logo ? (
-                                        <img
-                                            src={`${import.meta.env.BASE_URL}${exp.logo}`}
-                                            alt={`${exp.company} Logo`}
-                                            className="w-full h-full object-contain p-1"
-                                            onError={(e) => {
-                                                e.target.style.display = 'none';
-                                                e.target.nextElementSibling.style.display = 'flex';
-                                            }}
-                                        />
+                                        exp.company === 'SeverinoBiu' ? (
+                                            <a
+                                                href="https://severinobiu.com.br/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                                            >
+                                                <img
+                                                    src={`${import.meta.env.BASE_URL}${exp.logo}`}
+                                                    alt={`${exp.company} Logo`}
+                                                    className="w-full h-full object-contain p-1"
+                                                    onError={(e) => {
+                                                        e.target.style.display = 'none';
+                                                        e.target.nextElementSibling.style.display = 'flex';
+                                                    }}
+                                                />
+                                            </a>
+                                        ) : (
+                                            <img
+                                                src={`${import.meta.env.BASE_URL}${exp.logo}`}
+                                                alt={`${exp.company} Logo`}
+                                                className="w-full h-full object-contain p-1"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                    e.target.nextElementSibling.style.display = 'flex';
+                                                }}
+                                            />
+                                        )
                                     ) : null}
                                     <span className={`text-xl font-bold ${
                                         exp.logo ? 'hidden' : 'flex'
