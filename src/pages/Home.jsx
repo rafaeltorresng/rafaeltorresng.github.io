@@ -1,232 +1,176 @@
 import { motion } from 'framer-motion'
-import { Code, Database, Brain } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import DataSculpture from '../components/3d/DataSculpture'
 
 const Home = ({ darkMode }) => {
-    const services = [
-        {
-            title: 'Engineering Systems',
-            icon: Code
-        },
-        {
-            title: 'Data Intelligence',
-            icon: Database
-        },
-        {
-            title: 'Applied AI',
-            icon: Brain
-        }
-    ]
-
     return (
-        <div className="pt-16">
+        <div>
             {/* Hero Section */}
-            <section id="home" className={`pt-24 pb-20 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'
-                }`}>
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-8"
-                        >
+            <div className="min-h-screen flex items-center justify-center px-8 py-16">
+                <div className="max-w-4xl w-full">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="space-y-12"
+                    >
+                        {/* Hero Text */}
+                        <div className="space-y-6">
                             <div>
-                                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                                    }`}>
+                                <p className={`text-sm font-mono uppercase tracking-wider mb-4 ${
+                                    darkMode ? 'text-gray-500' : 'text-gray-500'
+                                }`}>
+                                </p>
+                                <h1 className={`text-5xl md:text-6xl font-bold mb-2 transition-colors ${
+                                    darkMode ? 'text-white' : 'text-gray-900'
+                                }`}>
                                     Rafael Torres
                                 </h1>
-                                <p className={`text-xl md:text-2xl mt-4 leading-relaxed transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'
-                                    }`}>
-                                    Computer Science student passionate about exploring the realms of Software Engineering and Machine Learning.
+                                <p className={`text-xl md:text-2xl font-light ${
+                                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
+                                    Computer Science Student
                                 </p>
                             </div>
-
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <motion.a
-                                    href={`${import.meta.env.BASE_URL}resume.pdf`}
-                                    download="Rafael_Torres_Resume.pdf"
-                                    className={`px-8 py-3 rounded-lg transition-colors font-medium shadow-lg text-center ${darkMode
-                                        ? 'bg-white text-black hover:bg-gray-200'
-                                        : 'bg-gray-900 text-white hover:bg-gray-800'
-                                        }`}
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                >
-                                    Download CV
-                                </motion.a>
-                                <Link
-                                    to="/contact"
-                                    className={`px-8 py-3 rounded-lg transition-colors font-medium border text-center ${darkMode
-                                        ? 'border-white text-white hover:bg-white hover:text-black'
-                                        : 'border-gray-900 text-gray-900 hover:bg-gray-50 hover:text-gray-900'
-                                        }`}
-                                >
-                                    Get In Touch
-                                </Link>
+                            
+                            <div className={`space-y-4 text-base md:text-lg max-w-2xl ${
+                                darkMode ? 'text-gray-400' : 'text-gray-600'
+                            }`}>
+                                <p className="leading-relaxed">
+                                    Passionate about exploring the realms of{' '}
+                                    <span className={darkMode ? 'text-white' : 'text-gray-900'}>
+                                        Software Engineering
+                                    </span>{' '}
+                                    and{' '}
+                                    <span className={darkMode ? 'text-white' : 'text-gray-900'}>
+                                        Machine Learning
+                                    </span>.
+                                </p>
+                                
+                                <p className="leading-relaxed">
+                                    I have always found a quiet magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for their potential to make the everyday smarter and simpler. I want to craft solutions that don't just solve problems, but feel inevitable in their elegance.
+                                </p>
                             </div>
-                        </motion.div>
+                        </div>
 
+                        {/* Education */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="flex justify-center lg:justify-end"
+                            className={`p-6 rounded-lg border ${
+                                darkMode
+                                    ? 'bg-gray-900 border-gray-800'
+                                    : 'bg-gray-50 border-gray-200'
+                            }`}
                         >
-                            <div className="relative">
+                            <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
+                                darkMode ? 'text-gray-500' : 'text-gray-500'
+                            }`}>
+                                Education
+                            </p>
+                            <div className="flex items-start space-x-4">
                                 <img
-                                    src={`${import.meta.env.BASE_URL}eu.png`}
-                                    alt="Rafael Torres - Computer Science Student"
-                                    className="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl border-4 border-white dark:border-gray-800"
-                                    style={{
-                                        objectFit: 'cover',
-                                        objectPosition: '90% center',
-                                        transform: 'scale(1.2)'
-                                    }}
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.nextElementSibling.style.display = 'flex';
-                                    }}
+                                    src={`${import.meta.env.BASE_URL}ufpb-logo.png`}
+                                    alt="UFPB"
+                                    className="w-12 h-12 object-contain rounded"
+                                    onError={(e) => e.target.style.display = 'none'}
                                 />
-                                <div
-                                    className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold text-4xl md:text-6xl shadow-2xl border-4 border-white dark:border-gray-800"
-                                    style={{ display: 'none' }}
-                                >
-                                    RT
+                                <div>
+                                    <h3 className={`font-semibold mb-1 ${
+                                        darkMode ? 'text-white' : 'text-gray-900'
+                                    }`}>
+                                        Bachelor of Computer Science
+                                    </h3>
+                                    <p className={`text-sm ${
+                                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                                    }`}>
+                                        Federal University of Paraíba (UFPB)
+                                    </p>
+                                    <p className={`text-xs font-mono mt-1 ${
+                                        darkMode ? 'text-gray-500' : 'text-gray-500'
+                                    }`}>
+                                        2024 - Present
+                                    </p>
                                 </div>
                             </div>
                         </motion.div>
-                    </div>
-                </div>
-            </section>
 
-            {/* About Me Section */}
-            <section id="about" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'
-                }`}>
-                <div className="max-w-4xl mx-auto px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                            }`}>About Me</h2>
-                        <div className="w-24 h-0.5 bg-brand-600 mx-auto"></div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="prose prose-lg max-w-none"
-                    >
-                        <div className={`leading-relaxed text-lg transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'
+                        {/* Areas of Focus */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                        >
+                            <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${
+                                darkMode ? 'text-gray-500' : 'text-gray-500'
                             }`}>
-                            <p>
-                                I have always found a quiet magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for its potential to breathe intelligence into the everyday. I want to craft solutions that actually make life simpler and smarter. It is a practice of purpose, where I strive to create technology that feels inevitable.
+                                Areas of Focus
                             </p>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Education Section */}
-            <section id="education" className={`py-16 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'
-                }`}>
-                <div className="max-w-4xl mx-auto px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                            }`}>Education</h2>
-                        <div className="w-24 h-0.5 bg-brand-600 mx-auto"></div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className={`p-6 rounded-2xl border shadow-sm transition-colors duration-300 max-w-2xl mx-auto ${darkMode
-                            ? 'bg-gray-800 border-gray-700'
-                            : 'bg-white border-gray-200'
-                            }`}
-                    >
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 text-center sm:text-left">
-                            <img
-                                src={`${import.meta.env.BASE_URL}ufpb-logo.png`}
-                                alt="UFPB Logo"
-                                className="w-16 h-16 object-contain rounded-lg mx-auto sm:mx-0"
-                                onError={(e) => {
-                                    e.target.style.display = 'none';
-                                }}
-                            />
-                            <div className="flex-1">
-                                <h3 className={`text-xl font-semibold transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                                    }`}>
-                                    Bachelor of Computer Science
-                                </h3>
-                                <p className={`font-medium transition-colors duration-300 ${darkMode ? 'text-brand-300' : 'text-brand-600'
-                                    }`}>
-                                    Federal University of Paraíba (UFPB)
-                                </p>
-                                <p className={`text-sm transition-colors duration-300 ${darkMode ? 'text-gray-400' : 'text-gray-600'
-                                    }`}>
-                                    2024 - Present
-                                </p>
+                            <div className="grid md:grid-cols-3 gap-4">
+                                {['Engineering Systems', 'Data Intelligence', 'Applied AI'].map((area, index) => (
+                                    <div
+                                        key={area}
+                                        className={`p-4 rounded-lg border transition-all duration-300 hover:shadow-lg ${
+                                            darkMode
+                                                ? 'bg-gray-900 border-gray-800 hover:border-gray-700'
+                                                : 'bg-white border-gray-200 hover:border-gray-300'
+                                        }`}
+                                    >
+                                        <span className={`text-xs font-mono ${
+                                            darkMode ? 'text-gray-500' : 'text-gray-500'
+                                        }`}>
+                                            0{index + 1}
+                                        </span>
+                                        <h3 className={`mt-2 font-semibold ${
+                                            darkMode ? 'text-white' : 'text-gray-900'
+                                        }`}>
+                                            {area}
+                                        </h3>
+                                    </div>
+                                ))}
                             </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+                        </motion.div>
 
-            {/* Interests Section */}
-            <section className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'
-                }`}>
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                            }`}>
-                            Areas of Focus
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {services.map((service, index) => (
-                            <motion.div
-                                key={service.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
-                                className={`p-6 rounded-xl transition-all duration-300 border shadow-sm group hover:-translate-y-1 hover:shadow-md hover:border-brand-300/50 ${darkMode
-                                    ? 'bg-gray-900 border-gray-800'
-                                    : 'bg-white border-gray-200'
-                                    }`}
+                        {/* CTA */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="flex flex-wrap gap-4"
+                        >
+                            <Link
+                                to="/projects"
+                                className={`group flex items-center space-x-2 px-6 py-3 rounded-lg font-mono text-sm transition-all ${
+                                    darkMode
+                                        ? 'bg-white text-black hover:bg-gray-200'
+                                        : 'bg-gray-900 text-white hover:bg-gray-800'
+                                }`}
                             >
-                                <service.icon className="text-brand-300 mb-4" size={28} />
-                                <h3 className={`text-xl font-semibold mb-3 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                                    }`}>
-                                    {service.title}
-                                </h3>
-
-                            </motion.div>
-                        ))}
-                    </div>
+                                <span>View Projects</span>
+                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link
+                                to="/contact"
+                                className={`px-6 py-3 rounded-lg font-mono text-sm border transition-all ${
+                                    darkMode
+                                        ? 'border-gray-700 text-white hover:bg-gray-900'
+                                        : 'border-gray-300 text-gray-900 hover:bg-gray-50'
+                                }`}
+                            >
+                                Get In Touch
+                            </Link>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </section>
+            </div>
 
             {/* Data Sculpture Section */}
-            <section className={`h-[600px] w-full relative overflow-hidden transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'}`}>
+            <section className={`h-[600px] w-full relative overflow-hidden transition-colors duration-300 ${
+                darkMode ? 'bg-[#0a0a0a]' : 'bg-white'
+            }`}>
                 <div className="absolute inset-0">
                     <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
                         <ambientLight intensity={0.5} />

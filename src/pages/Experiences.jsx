@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, MapPin, Calendar } from 'lucide-react'
 
 const Experiences = ({ darkMode }) => {
     const experience = [
@@ -73,92 +73,106 @@ const Experiences = ({ darkMode }) => {
     ]
 
     return (
-        <div className="pt-24 pb-20 min-h-screen">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                        }`}>
-                        Professional Experience
-                    </h2>
-                    <p className={`text-lg max-w-2xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'
-                        }`}>
-                        My journey in the tech industry
+        <div className="min-h-screen py-16 px-8">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-4xl"
+            >
+                <div className="mb-12">
+                    <h1 className={`text-4xl font-bold mb-4 transition-colors ${
+                        darkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
+                        Experience
+                    </h1>
+                    <p className={`text-lg font-mono ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
+                        My journey in tech
                     </p>
-                </motion.div>
+                </div>
 
-                <div className="max-w-4xl mx-auto space-y-8">
+                <div className="space-y-6">
                     {experience.map((exp, index) => (
                         <motion.div
                             key={`${exp.company}-${index}`}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            className={`p-8 rounded-2xl border shadow-sm hover:shadow-md transition-all duration-300 ${darkMode
-                                ? 'bg-gray-800 border-gray-700'
-                                : 'bg-white border-gray-200'
-                                }`}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            whileHover={{ x: 4 }}
+                            className={`elegant-card p-6 rounded-lg border transition-all duration-300 hover:shadow-xl group ${
+                                darkMode
+                                    ? 'bg-gray-900 border-gray-800 hover:border-gray-700'
+                                    : 'bg-white border-gray-200 hover:border-gray-300'
+                            }`}
                         >
-                            <div className="flex flex-col md:flex-row md:items-start gap-6">
-                                {/* Logo or Placeholder */}
-                                <div className="w-16 h-16 rounded-lg flex-shrink-0 flex items-center justify-center bg-white border border-gray-200">
+                            <div className="flex items-start gap-4">
+                                {/* Logo */}
+                                <div className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center bg-white border border-gray-200 overflow-hidden">
                                     {exp.logo ? (
                                         <img
                                             src={`${import.meta.env.BASE_URL}${exp.logo}`}
                                             alt={`${exp.company} Logo`}
-                                            className="w-full h-full object-contain rounded-lg p-1"
+                                            className="w-full h-full object-contain p-1"
                                             onError={(e) => {
                                                 e.target.style.display = 'none';
-                                                e.target.nextElementSibling.style.display = 'block';
+                                                e.target.nextElementSibling.style.display = 'flex';
                                             }}
                                         />
-                                    ) : (
-                                        <span className={`text-2xl font-bold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                                            {exp.company.charAt(0)}
-                                        </span>
-                                    )}
-                                    {/* Fallback for broken image */}
-                                    <span className="hidden text-2xl font-bold text-gray-500">
+                                    ) : null}
+                                    <span className={`text-xl font-bold ${
+                                        exp.logo ? 'hidden' : 'flex'
+                                    } ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                                         {exp.company.charAt(0)}
                                     </span>
                                 </div>
 
-                                <div className="flex-1">
-                                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-start justify-between gap-4 mb-2">
                                         <div>
-                                            <h3 className={`text-xl font-bold transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
-                                                }`}>
+                                            <h3 className={`text-lg font-bold ${
+                                                darkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>
                                                 {exp.title}
                                             </h3>
-                                            <p className={`text-lg font-medium transition-colors duration-300 ${darkMode ? 'text-brand-300' : 'text-brand-600'
-                                                }`}>
+                                            <p className={`font-medium ${
+                                                darkMode ? 'text-blue-400' : 'text-blue-600'
+                                            }`}>
                                                 {exp.company}
                                             </p>
                                         </div>
-                                        <div className="text-right mt-2 md:mt-0">
-                                            <p className={`font-medium whitespace-nowrap transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'
-                                                }`}>
-                                                {exp.period}
-                                            </p>
-                                            {exp.location && (
-                                                <p className={`text-sm transition-colors duration-300 ${darkMode ? 'text-gray-500' : 'text-gray-500'
-                                                    }`}>
-                                                    {exp.location}
-                                                </p>
-                                            )}
-                                        </div>
+                                        {exp.current && (
+                                            <span className={`px-2 py-1 text-xs font-mono rounded ${
+                                                darkMode
+                                                    ? 'bg-green-900/30 text-green-400'
+                                                    : 'bg-green-100 text-green-700'
+                                            }`}>
+                                                Current
+                                            </span>
+                                        )}
                                     </div>
 
-                                    {exp.description && (
-                                        <p className={`mt-4 leading-relaxed transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'
-                                            }`}>
-                                            {exp.description}
-                                        </p>
-                                    )}
+                                    <div className={`flex flex-wrap gap-3 text-sm mb-3 ${
+                                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                                    }`}>
+                                        <span className="flex items-center gap-1 font-mono text-xs">
+                                            <Calendar size={14} />
+                                            {exp.period}
+                                        </span>
+                                        {exp.location && (
+                                            <span className="flex items-center gap-1 font-mono text-xs">
+                                                <MapPin size={14} />
+                                                {exp.location}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <p className={`leading-relaxed text-sm ${
+                                        darkMode ? 'text-gray-300' : 'text-gray-700'
+                                    }`}>
+                                        {exp.description}
+                                    </p>
 
                                     {/* Linked Asset */}
                                     {exp.link && exp.asset && (
@@ -169,14 +183,16 @@ const Experiences = ({ darkMode }) => {
                                                 rel="noopener noreferrer"
                                                 className="inline-block group"
                                             >
-                                                <div className="relative overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
+                                                <div className={`relative overflow-hidden rounded border ${
+                                                    darkMode ? 'border-gray-800' : 'border-gray-200'
+                                                }`}>
                                                     <img
                                                         src={`${import.meta.env.BASE_URL}${exp.asset}`}
                                                         alt="Reference"
-                                                        className="h-24 w-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                                                        className="h-20 w-auto object-cover transition-transform duration-300 group-hover:scale-105"
                                                     />
                                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                                                        <ExternalLink size={16} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md" />
+                                                        <ExternalLink size={14} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md" />
                                                     </div>
                                                 </div>
                                             </a>
@@ -187,7 +203,7 @@ const Experiences = ({ darkMode }) => {
                         </motion.div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }
