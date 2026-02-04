@@ -4,27 +4,27 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react'
 const Projects = ({ darkMode }) => {
     const projects = [
         {
-            title: 'TARG (Time-series Analysis Report Generator)',
-            description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
-            github: 'https://github.com/Vitoreism/TARG',
-            number: '01'
-        },
-        {
             title: 'Blonded AI',
             description: 'An intelligent music recommendation system built using Spotify audio embeddings and PCA. Features a sophisticated feature extraction pipeline, similarity computation algorithms, and a personalized recommendation engine with Spotify integration.',
             github: 'https://github.com/rafaeltorresng/Blonded-AI',
-            number: '02'
+            number: '01'
         },
         {
             title: 'GuardAzul',
             description: 'A mobile app designed to protect the coastal ecosystems of Paraíba, Brazil. This project integrates a React Native (Expo) mobile application with a Python (FastAPI) RESTful API and a PostgreSQL database. The platform leverages Google\'s AI (Gemini and Vision) to power an informative chatbot and to automatically validate environmental reports submitted by users.',
             github: 'https://github.com/luigischmitt/GuardAzul',
-            number: '03'
+            number: '02'
         },
         {
             title: 'Brazilian Championship Simulator',
             description: 'A comprehensive football simulation platform that recreates the Brazilian Championship experience. Features intelligent match algorithms, real-time league standings, and dynamic team management with an intuitive web interface built on Java Spring Boot.',
             github: 'https://github.com/arturpereira12/poo_brasileirao',
+            number: '03'
+        },
+        {
+            title: 'TARG (Time-series Analysis Report Generator)',
+            description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
+            github: 'https://github.com/Vitoreism/TARG',
             number: '04'
         }
     ]

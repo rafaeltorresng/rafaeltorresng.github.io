@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Github, Linkedin, Instagram, Mail, FileText } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import FolderIcon from './FolderIcon'
 
 const MobileNav = ({ darkMode }) => {
     const [isOpen, setIsOpen] = useState(false)
+    const [hoveredLink, setHoveredLink] = useState(null)
 
     const navLinks = [
         { name: 'INTRO', path: '/' },
@@ -93,8 +95,10 @@ const MobileNav = ({ darkMode }) => {
                                             key={link.path}
                                             to={link.path}
                                             onClick={() => setIsOpen(false)}
+                                            onMouseEnter={() => setHoveredLink(link.path)}
+                                            onMouseLeave={() => setHoveredLink(null)}
                                             className={({ isActive }) =>
-                                                `block px-3 py-2 rounded-lg text-sm font-mono transition-colors ${
+                                                `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-mono transition-colors ${
                                                     isActive
                                                         ? darkMode
                                                             ? 'bg-gray-800 text-white'
@@ -105,7 +109,15 @@ const MobileNav = ({ darkMode }) => {
                                                 }`
                                             }
                                         >
-                                            {link.name}
+                                            {({ isActive }) => (
+                                                <>
+                                                    <FolderIcon 
+                                                        isActive={isActive} 
+                                                        isHovered={hoveredLink === link.path}
+                                                    />
+                                                    <span>{link.name}</span>
+                                                </>
+                                            )}
                                         </NavLink>
                                     ))}
                                 </nav>

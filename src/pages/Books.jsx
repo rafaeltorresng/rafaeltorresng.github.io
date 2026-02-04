@@ -7,7 +7,7 @@ const Books = ({ darkMode }) => {
             title: 'Grokking Algorithms',
             author: 'Aditya Y. Bhargava',
             year: '2016',
-            review: '',
+            review: 'This book served as my gateway into the world of algorithms and data structures. Its visual approach and clear explanations helped me grasp crucial concepts that became the foundation of my understanding in this area.',
             cover: 'entend_alg.jpg',
             reading: false
         },
@@ -15,7 +15,7 @@ const Books = ({ darkMode }) => {
             title: 'The Pragmatic Programmer',
             author: 'Andrew Hunt, David Thomas',
             year: '2019',
-            review: '',
+            review: 'The insights on handling code and navigating real world situations have shaped my approach to software development, offering perspectives on craftsmanship, problem solving, and the mindset needed to build quality software.',
             cover: 'prag_pro.jpg',
             reading: false
         },
@@ -23,7 +23,7 @@ const Books = ({ darkMode }) => {
             title: 'Fundamentals of Software Architecture',
             author: 'Mark Richards, Neal Ford',
             year: '2020',
-            review: '',
+            review: 'It opened my eyes to the world of software architecture. It introduced me to different architectural styles, the art of understanding trade offs, and the organizational thinking required to design scalable systems. What started as curiosity turned into genuine passion for this field. ', 
             cover: 'fund_arq.jpg',
             reading: false
         },
@@ -31,7 +31,7 @@ const Books = ({ darkMode }) => {
             title: 'Data Science from Scratch',
             author: 'Joel Grus',
             year: '2019',
-            review: '',
+            review: 'An invaluable resource that helped me revisit and deepen my understanding of core data science concepts. The hands on approach made complex topics accessible, reinforcing my foundation in this rapidly evolving field.',
             cover: 'data_scra.jpg',
             reading: false
         },
@@ -39,7 +39,7 @@ const Books = ({ darkMode }) => {
             title: 'The Silmarillion',
             author: 'J.R.R. Tolkien',
             year: '1977',
-            review: '',
+            review: 'Middle Earth lover exploring the books',
             cover: 'sillma.jpg',
             reading: true
         }

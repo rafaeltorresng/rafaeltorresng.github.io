@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, FileText, Instagram } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import FolderIcon from './FolderIcon'
 
 const Sidebar = ({ darkMode }) => {
+    const [hoveredLink, setHoveredLink] = useState(null)
+
     const navLinks = [
         { name: 'INTRO', path: '/' },
         { name: 'EXPERIENCE', path: '/experiences' },
@@ -90,8 +94,10 @@ const Sidebar = ({ darkMode }) => {
                         <NavLink
                             key={link.path}
                             to={link.path}
+                            onMouseEnter={() => setHoveredLink(link.path)}
+                            onMouseLeave={() => setHoveredLink(null)}
                             className={({ isActive }) =>
-                                `block px-3 py-2 rounded-lg text-sm font-mono transition-all duration-300 ${
+                                `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-mono transition-all duration-300 ${
                                     isActive
                                         ? darkMode
                                             ? 'bg-gray-800 text-white shadow-lg'
@@ -102,7 +108,15 @@ const Sidebar = ({ darkMode }) => {
                                 }`
                             }
                         >
-                            {link.name}
+                            {({ isActive }) => (
+                                <>
+                                    <FolderIcon 
+                                        isActive={isActive} 
+                                        isHovered={hoveredLink === link.path}
+                                    />
+                                    <span>{link.name}</span>
+                                </>
+                            )}
                         </NavLink>
                     ))}
                 </motion.nav>

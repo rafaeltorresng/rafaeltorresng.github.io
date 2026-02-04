@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import MobileNav from './components/MobileNav'
+import ScrollToTopButton from './components/ScrollToTopButton'
 import Home from './pages/Home'
 import Experiences from './pages/Experiences'
 import Projects from './pages/Projects'
@@ -72,6 +73,9 @@ function App() {
               <Route path="/books" element={<Books darkMode={darkMode} />} />
               <Route path="/contact" element={<Contact darkMode={darkMode} />} />
             </Routes>
+
+            {/* Scroll to Top Button */}
+            <ScrollToTopButton darkMode={darkMode} />
           </main>
         </div>
       </div>
