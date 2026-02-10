@@ -3,22 +3,27 @@ import { Github, Linkedin, Mail, FileText, Instagram } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import FolderIcon from './FolderIcon'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations/translations'
+import AnimatedText from './AnimatedText'
 
 const Sidebar = ({ darkMode }) => {
     const [hoveredLink, setHoveredLink] = useState(null)
+    const { language } = useLanguage()
+    const t = translations[language].sidebar
 
     const navLinks = [
-        { name: 'INTRO', path: '/' },
-        { name: 'EXPERIENCE', path: '/experiences' },
-        { name: 'PROJECTS', path: '/projects' },
-        { name: 'BOOKS', path: '/books' },
-        { name: 'CONTACT', path: '/contact' },
+        { name: t.intro, path: '/' },
+        { name: t.experience, path: '/experiences' },
+        { name: t.projects, path: '/projects' },
+        { name: t.books, path: '/books' },
+        { name: t.contact, path: '/contact' },
     ]
 
 
     const languages = [
-        { name: 'Portuguese', flag: '🇧🇷', level: 'Native' },
-        { name: 'English', flag: '🇺🇸', level: 'Fluent' },
+        { name: t.portuguese, flag: '🇧🇷', level: t.native },
+        { name: t.english, flag: '🇺🇸', level: t.fluent },
     ]
 
     return (
@@ -68,12 +73,12 @@ const Sidebar = ({ darkMode }) => {
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                         <p className="mb-3">
-                            Computer Science student passionate about Software Engineering and Machine Learning.
+                            <AnimatedText>{t.description}</AnimatedText>
                         </p>
                         <p className={`text-xs font-mono ${
                             darkMode ? 'text-gray-500' : 'text-gray-500'
                         }`}>
-                            Based in João Pessoa, Brazil
+                            <AnimatedText>{t.location}</AnimatedText>
                         </p>
                     </div>
                 </motion.div>
@@ -88,7 +93,7 @@ const Sidebar = ({ darkMode }) => {
                     <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
                         darkMode ? 'text-gray-500' : 'text-gray-500'
                     }`}>
-                        Navigation
+                        <AnimatedText>{t.navigation}</AnimatedText>
                     </p>
                     {navLinks.map((link) => (
                         <NavLink
@@ -114,7 +119,7 @@ const Sidebar = ({ darkMode }) => {
                                         isActive={isActive} 
                                         isHovered={hoveredLink === link.path}
                                     />
-                                    <span>{link.name}</span>
+                                    <AnimatedText as="span">{link.name}</AnimatedText>
                                 </>
                             )}
                         </NavLink>
@@ -130,7 +135,7 @@ const Sidebar = ({ darkMode }) => {
                     <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
                         darkMode ? 'text-gray-500' : 'text-gray-500'
                     }`}>
-                        Languages
+                        <AnimatedText>{t.languages}</AnimatedText>
                     </p>
                     <div className="space-y-2">
                         {languages.map((lang) => (
@@ -162,7 +167,7 @@ const Sidebar = ({ darkMode }) => {
                     <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
                         darkMode ? 'text-gray-500' : 'text-gray-500'
                     }`}>
-                        Contact
+                        <AnimatedText>{t.contactSection}</AnimatedText>
                     </p>
                     <div className="space-y-2">
                         <a
@@ -174,7 +179,7 @@ const Sidebar = ({ darkMode }) => {
                             }`}
                         >
                             <Mail size={14} />
-                            <span className="font-mono text-xs">Email</span>
+                            <span className="font-mono text-xs"><AnimatedText>{t.email}</AnimatedText></span>
                         </a>
                         <a
                             href={`${import.meta.env.BASE_URL}resume.pdf`}
@@ -186,7 +191,7 @@ const Sidebar = ({ darkMode }) => {
                             }`}
                         >
                             <FileText size={14} />
-                            <span className="font-mono text-xs">Resume</span>
+                            <span className="font-mono text-xs"><AnimatedText>{t.resume}</AnimatedText></span>
                         </a>
                     </div>
                 </motion.div>

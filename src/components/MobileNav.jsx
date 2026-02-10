@@ -3,17 +3,22 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Github, Linkedin, Instagram, Mail, FileText } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import FolderIcon from './FolderIcon'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations/translations'
+import AnimatedText from './AnimatedText'
 
 const MobileNav = ({ darkMode }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [hoveredLink, setHoveredLink] = useState(null)
+    const { language } = useLanguage()
+    const t = translations[language].sidebar
 
     const navLinks = [
-        { name: 'INTRO', path: '/' },
-        { name: 'EXPERIENCE', path: '/experiences' },
-        { name: 'PROJECTS', path: '/projects' },
-        { name: 'BOOKS', path: '/books' },
-        { name: 'CONTACT', path: '/contact' },
+        { name: t.intro, path: '/' },
+        { name: t.experience, path: '/experiences' },
+        { name: t.projects, path: '/projects' },
+        { name: t.books, path: '/books' },
+        { name: t.contact, path: '/contact' },
     ]
 
     return (
@@ -115,7 +120,7 @@ const MobileNav = ({ darkMode }) => {
                                                         isActive={isActive} 
                                                         isHovered={hoveredLink === link.path}
                                                     />
-                                                    <span>{link.name}</span>
+                                                    <AnimatedText as="span">{link.name}</AnimatedText>
                                                 </>
                                             )}
                                         </NavLink>
@@ -127,7 +132,7 @@ const MobileNav = ({ darkMode }) => {
                                     <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
                                         darkMode ? 'text-gray-500' : 'text-gray-500'
                                     }`}>
-                                        Contact
+                                        <AnimatedText>{t.contactSection}</AnimatedText>
                                     </p>
                                     <div className="space-y-2">
                                         <a
@@ -139,7 +144,7 @@ const MobileNav = ({ darkMode }) => {
                                             }`}
                                         >
                                             <Mail size={14} />
-                                            <span className="font-mono text-xs">Email</span>
+                                            <span className="font-mono text-xs"><AnimatedText>{t.email}</AnimatedText></span>
                                         </a>
                                         <a
                                             href={`${import.meta.env.BASE_URL}resume.pdf`}
@@ -151,7 +156,7 @@ const MobileNav = ({ darkMode }) => {
                                             }`}
                                         >
                                             <FileText size={14} />
-                                            <span className="font-mono text-xs">Resume</span>
+                                            <span className="font-mono text-xs"><AnimatedText>{t.resume}</AnimatedText></span>
                                         </a>
                                     </div>
                                 </div>

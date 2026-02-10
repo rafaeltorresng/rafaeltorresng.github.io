@@ -1,29 +1,36 @@
 import { motion } from 'framer-motion'
-import { Github, ExternalLink, ArrowUpRight } from 'lucide-react'
+import { Github, ArrowUpRight } from 'lucide-react'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations/translations'
+import AnimatedText from '../components/AnimatedText'
+import TerminalPrompt from '../components/TerminalPrompt'
 
 const Projects = ({ darkMode }) => {
+    const { language } = useLanguage()
+    const t = translations[language].projects
+    
     const projects = [
         {
             title: 'Blonded AI',
-            description: 'An intelligent music recommendation system built using Spotify audio embeddings and PCA. Features a sophisticated feature extraction pipeline, similarity computation algorithms, and a personalized recommendation engine with Spotify integration.',
+            description: t.projects[0].description,
             github: 'https://github.com/rafaeltorresng/Blonded-AI',
             number: '01'
         },
         {
             title: 'GuardAzul',
-            description: 'A mobile app designed to protect the coastal ecosystems of Paraíba, Brazil. This project integrates a React Native (Expo) mobile application with a Python (FastAPI) RESTful API and a PostgreSQL database. The platform leverages Google\'s AI (Gemini and Vision) to power an informative chatbot and to automatically validate environmental reports submitted by users.',
+            description: t.projects[1].description,
             github: 'https://github.com/luigischmitt/GuardAzul',
             number: '02'
         },
         {
-            title: 'Brazilian Championship Simulator',
-            description: 'A comprehensive football simulation platform that recreates the Brazilian Championship experience. Features intelligent match algorithms, real-time league standings, and dynamic team management with an intuitive web interface built on Java Spring Boot.',
+            title: language === 'en' ? 'Brazilian Championship Simulator' : 'Simulador do Campeonato Brasileiro',
+            description: t.projects[2].description,
             github: 'https://github.com/arturpereira12/poo_brasileirao',
             number: '03'
         },
         {
-            title: 'TARG (Time-series Analysis Report Generator)',
-            description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
+            title: language === 'en' ? 'TARG (Time-series Analysis Report Generator)' : 'TARG (Gerador de Relatórios de Análise de Séries Temporais)',
+            description: t.projects[3].description,
             github: 'https://github.com/Vitoreism/TARG',
             number: '04'
         }
@@ -38,15 +45,18 @@ const Projects = ({ darkMode }) => {
                 className="max-w-4xl"
             >
                 <div className="mb-12">
+                    <div className="mb-4">
+                        <TerminalPrompt darkMode={darkMode} command="ls ~/projects" />
+                    </div>
                     <h1 className={`text-4xl font-bold mb-4 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
-                        Projects
+                        <AnimatedText>{t.title}</AnimatedText>
                     </h1>
                     <p className={`text-lg font-mono ${
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
-                        Selected work
+                        <AnimatedText>{t.subtitle}</AnimatedText>
                     </p>
                 </div>
 
@@ -78,7 +88,7 @@ const Projects = ({ darkMode }) => {
                                         <h3 className={`text-xl font-bold transition-colors duration-300 ${
                                             darkMode ? 'text-white group-hover:text-gray-300' : 'text-gray-900 group-hover:text-gray-700'
                                         }`}>
-                                            {project.title}
+                                            <AnimatedText>{project.title}</AnimatedText>
                                         </h3>
                                         <a
                                             href={project.github}
@@ -97,7 +107,7 @@ const Projects = ({ darkMode }) => {
                                     <p className={`text-sm leading-relaxed mb-4 ${
                                         darkMode ? 'text-gray-400' : 'text-gray-600'
                                     }`}>
-                                        {project.description}
+                                        <AnimatedText>{project.description}</AnimatedText>
                                     </p>
 
                                     {/* Links */}
@@ -113,7 +123,7 @@ const Projects = ({ darkMode }) => {
                                             }`}
                                         >
                                             <Github size={16} />
-                                            <span>Repository</span>
+                                            <AnimatedText as="span">{t.repository}</AnimatedText>
                                         </a>
                                     </div>
                                 </div>
