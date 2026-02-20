@@ -142,13 +142,13 @@ const Experiences = ({ darkMode }) => {
                                     </div>
                                     
                                     <p className={`text-base font-normal mb-1 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                                        darkMode ? 'text-gray-400' : 'text-gray-600'
                                     }`}>
                                         {exp.company}
                                     </p>
 
                                     <p className={`text-base font-normal mb-3 ${
-                                        darkMode ? 'text-gray-600' : 'text-gray-400'
+                                        darkMode ? 'text-gray-500' : 'text-gray-500'
                                     }`}>
                                         {exp.period}
                                     </p>

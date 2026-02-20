@@ -29,7 +29,7 @@ const Contact = ({ darkMode }) => {
                     {/* Email */}
                     <div>
                         <p className={`text-sm font-normal mb-2 ${
-                            darkMode ? 'text-gray-600' : 'text-gray-400'
+                            darkMode ? 'text-gray-500' : 'text-gray-500'
                         }`}>
                             Email
                         </p>
@@ -46,7 +46,7 @@ const Contact = ({ darkMode }) => {
                     {/* Phone */}
                     <div>
                         <p className={`text-sm font-normal mb-2 ${
-                            darkMode ? 'text-gray-600' : 'text-gray-400'
+                            darkMode ? 'text-gray-500' : 'text-gray-500'
                         }`}>
                             Phone
                         </p>
@@ -63,7 +63,7 @@ const Contact = ({ darkMode }) => {
                     {/* Location */}
                     <div>
                         <p className={`text-sm font-normal mb-2 ${
-                            darkMode ? 'text-gray-600' : 'text-gray-400'
+                            darkMode ? 'text-gray-500' : 'text-gray-500'
                         }`}>
                             Location
                         </p>
@@ -77,7 +77,7 @@ const Contact = ({ darkMode }) => {
                     {/* Social Links */}
                     <div>
                         <p className={`text-sm font-normal mb-3 ${
-                            darkMode ? 'text-gray-600' : 'text-gray-400'
+                            darkMode ? 'text-gray-500' : 'text-gray-500'
                         }`}>
                             Links
                         </p>

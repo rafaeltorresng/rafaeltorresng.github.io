@@ -44,7 +44,7 @@ const Home = ({ darkMode }) => {
                         {/* Current Work */}
                         <div>
                             <p className={`text-sm font-normal mb-2 ${
-                                darkMode ? 'text-gray-600' : 'text-gray-400'
+                                darkMode ? 'text-gray-500' : 'text-gray-500'
                             }`}>
                                 Currently
                             </p>
