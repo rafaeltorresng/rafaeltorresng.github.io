@@ -42,7 +42,7 @@ const Books = ({ darkMode }) => {
             author: 'J.R.R. Tolkien',
             year: '1977',
             cover: 'sillma.jpg',
-            reading: false
+            reading: true
         }
     ]
 
@@ -77,15 +77,6 @@ const Books = ({ darkMode }) => {
                                     alt={book.title}
                                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
-                                
-                                {/* Reading Badge */}
-                                {book.reading && (
-                                    <div className="absolute top-2 right-2">
-                                        <div className={`w-2 h-2 rounded-full ${
-                                            darkMode ? 'bg-green-400' : 'bg-green-500'
-                                        }`} />
-                                    </div>
-                                )}
 
                                 {/* Hover Overlay */}
                                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 ${
@@ -101,6 +92,13 @@ const Books = ({ darkMode }) => {
                                     }`}>
                                         {book.author}
                                     </p>
+                                    {book.reading && (
+                                        <p className={`text-xs font-light mt-2 ${
+                                            darkMode ? 'text-gray-500' : 'text-gray-400'
+                                        }`}>
+                                            Reading
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                         </div>
