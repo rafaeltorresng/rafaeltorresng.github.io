@@ -9,7 +9,6 @@ import Projects from './pages/Projects'
 import Books from './pages/Books'
 import Contact from './pages/Contact'
 import ScrollToTop from './components/ScrollToTop'
-import { Moon, Sun } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 function App() {
@@ -51,19 +50,19 @@ function App() {
           <MobileNav darkMode={darkMode} />
 
           {/* Main Content */}
-          <main className="flex-1 lg:ml-80">
+          <main className="flex-1 lg:ml-64">
             {/* Theme Toggle - Fixed top right */}
             <motion.button
               onClick={toggleDarkMode}
-              className={`fixed top-6 right-6 z-50 p-3 rounded-full transition-colors ${
+              className={`fixed top-6 right-6 z-50 px-3 py-2 text-xs font-light transition-opacity duration-200 hover:opacity-60 ${
                 darkMode
-                  ? 'bg-gray-800 hover:bg-gray-700 text-white'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                  ? 'text-gray-500'
+                  : 'text-gray-400'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+              {darkMode ? 'Dark' : 'Light'}
             </motion.button>
 
             <Routes>
