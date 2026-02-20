@@ -3,15 +3,8 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import DataSculpture from '../components/3d/DataSculpture'
-import { useLanguage } from '../contexts/LanguageContext'
-import { translations } from '../translations/translations'
-import AnimatedText from '../components/AnimatedText'
-import TerminalPrompt from '../components/TerminalPrompt'
 
 const Home = ({ darkMode }) => {
-    const { language } = useLanguage()
-    const t = translations[language].home
-
     return (
         <div>
             {/* Hero Section */}
@@ -26,18 +19,19 @@ const Home = ({ darkMode }) => {
                         {/* Hero Text */}
                         <div className="space-y-6">
                             <div>
-                                <div className="mb-4">
-                                    <TerminalPrompt darkMode={darkMode} command="whoami" />
-                                </div>
+                                <p className={`text-sm font-mono uppercase tracking-wider mb-4 ${
+                                    darkMode ? 'text-gray-500' : 'text-gray-500'
+                                }`}>
+                                </p>
                                 <h1 className={`text-5xl md:text-6xl font-bold mb-2 transition-colors ${
                                     darkMode ? 'text-white' : 'text-gray-900'
                                 }`}>
-                                    <AnimatedText>{t.title}</AnimatedText>
+                                    Rafael Torres
                                 </h1>
                                 <p className={`text-xl md:text-2xl font-light ${
                                     darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
-                                    <AnimatedText>{t.subtitle}</AnimatedText>
+                                    Computer Science Student
                                 </p>
                             </div>
                             
@@ -45,18 +39,18 @@ const Home = ({ darkMode }) => {
                                 darkMode ? 'text-gray-400' : 'text-gray-600'
                             }`}>
                                 <p className="leading-relaxed">
-                                    <AnimatedText>{t.intro1}</AnimatedText>{' '}
+                                    Passionate about exploring the realms of{' '}
                                     <span className={darkMode ? 'text-white' : 'text-gray-900'}>
-                                        <AnimatedText>{t.softwareEngineering}</AnimatedText>
+                                        Software Engineering
                                     </span>{' '}
-                                    <AnimatedText>{t.and}</AnimatedText>{' '}
+                                    and{' '}
                                     <span className={darkMode ? 'text-white' : 'text-gray-900'}>
-                                        <AnimatedText>{t.machineLearning}</AnimatedText>
+                                        Machine Learning
                                     </span>.
                                 </p>
                                 
                                 <p className="leading-relaxed">
-                                    <AnimatedText>{t.intro2}</AnimatedText>
+                                    I have always found a quiet magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for their potential to make the everyday smarter and simpler. I want to craft solutions that don't just solve problems, but feel inevitable in their elegance.
                                 </p>
                             </div>
                         </div>
@@ -75,7 +69,7 @@ const Home = ({ darkMode }) => {
                             <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
                                 darkMode ? 'text-gray-500' : 'text-gray-500'
                             }`}>
-                                <AnimatedText>{t.education}</AnimatedText>
+                                Education
                             </p>
                             <div className="flex items-start space-x-4">
                                 <img
@@ -88,17 +82,17 @@ const Home = ({ darkMode }) => {
                                     <h3 className={`font-semibold mb-1 ${
                                         darkMode ? 'text-white' : 'text-gray-900'
                                     }`}>
-                                        <AnimatedText>{t.degree}</AnimatedText>
+                                        Bachelor of Computer Science
                                     </h3>
                                     <p className={`text-sm ${
                                         darkMode ? 'text-gray-400' : 'text-gray-600'
                                     }`}>
-                                        <AnimatedText>{t.university}</AnimatedText>
+                                        Federal University of Paraíba (UFPB)
                                     </p>
                                     <p className={`text-xs font-mono mt-1 ${
                                         darkMode ? 'text-gray-500' : 'text-gray-500'
                                     }`}>
-                                        <AnimatedText>{t.period}</AnimatedText>
+                                        2024 - Present
                                     </p>
                                 </div>
                             </div>
@@ -113,12 +107,12 @@ const Home = ({ darkMode }) => {
                             <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${
                                 darkMode ? 'text-gray-500' : 'text-gray-500'
                             }`}>
-                                <AnimatedText>{t.areasOfFocus}</AnimatedText>
+                                Areas of Focus
                             </p>
                             <div className="grid md:grid-cols-3 gap-4">
-                                {[t.area1, t.area2, t.area3].map((area, index) => (
+                                {['Engineering Systems', 'Data Intelligence', 'Applied AI'].map((area, index) => (
                                     <div
-                                        key={`area-${index}`}
+                                        key={area}
                                         className={`p-4 rounded-lg border transition-all duration-300 hover:shadow-lg ${
                                             darkMode
                                                 ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
@@ -133,7 +127,7 @@ const Home = ({ darkMode }) => {
                                         <h3 className={`mt-2 font-semibold ${
                                             darkMode ? 'text-white' : 'text-gray-900'
                                         }`}>
-                                            <AnimatedText key={`area-text-${index}`}>{area}</AnimatedText>
+                                            {area}
                                         </h3>
                                     </div>
                                 ))}
@@ -155,7 +149,7 @@ const Home = ({ darkMode }) => {
                                         : 'bg-gray-900 text-white hover:bg-gray-800'
                                 }`}
                             >
-                                <AnimatedText as="span">{t.viewProjects}</AnimatedText>
+                                <span>View Projects</span>
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
@@ -166,7 +160,7 @@ const Home = ({ darkMode }) => {
                                         : 'border-gray-300 text-gray-900 hover:bg-gray-50'
                                 }`}
                             >
-                                <AnimatedText>{t.getInTouch}</AnimatedText>
+                                Get In Touch
                             </Link>
                         </motion.div>
                     </motion.div>

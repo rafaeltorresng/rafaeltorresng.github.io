@@ -1,30 +1,23 @@
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
-import { useLanguage } from '../contexts/LanguageContext'
-import { translations } from '../translations/translations'
-import AnimatedText from '../components/AnimatedText'
-import TerminalPrompt from '../components/TerminalPrompt'
 
 const Contact = ({ darkMode }) => {
-    const { language } = useLanguage()
-    const t = translations[language].contact
-    
     const contactInfo = [
         {
             icon: Mail,
-            label: t.email,
+            label: 'Email',
             value: 'rafaeltorresng@gmail.com',
             link: 'mailto:rafaeltorresng@gmail.com'
         },
         {
             icon: Phone,
-            label: t.phone,
+            label: 'Phone',
             value: '+55 81 98251-2792',
             link: 'tel:+5581982512792'
         },
         {
             icon: MapPin,
-            label: t.location,
+            label: 'Location',
             value: 'João Pessoa, PB, Brazil',
             link: null
         }
@@ -39,18 +32,16 @@ const Contact = ({ darkMode }) => {
                 className="max-w-2xl w-full"
             >
                 <div className="mb-12">
-                    <div className="mb-4">
-                        <TerminalPrompt darkMode={darkMode} command="./connect.sh" />
-                    </div>
                     <h1 className={`text-4xl font-bold mb-4 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
-                        <AnimatedText>{t.title}</AnimatedText>
+                        Get In Touch
                     </h1>
                     <p className={`text-lg ${
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
-                        <AnimatedText>{t.description}</AnimatedText>
+                        I'm always interested in discussing new opportunities, innovative projects, 
+                        or just connecting with fellow tech enthusiasts.
                     </p>
                 </div>
 
@@ -120,7 +111,7 @@ const Contact = ({ darkMode }) => {
                     <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${
                         darkMode ? 'text-gray-500' : 'text-gray-500'
                     }`}>
-                        <AnimatedText>{t.quickLinks}</AnimatedText>
+                        Quick Links
                     </p>
                     <div className="grid grid-cols-2 gap-3">
                         <a
@@ -133,7 +124,7 @@ const Contact = ({ darkMode }) => {
                                     : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
                             }`}
                         >
-                            <AnimatedText>{t.github}</AnimatedText>
+                            GitHub
                         </a>
                         <a
                             href="https://linkedin.com/in/rafaeltng"
@@ -145,7 +136,7 @@ const Contact = ({ darkMode }) => {
                                     : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
                             }`}
                         >
-                            <AnimatedText>{t.linkedin}</AnimatedText>
+                            LinkedIn
                         </a>
                         <a
                             href="https://www.instagram.com/rafatorresg_"
@@ -157,7 +148,7 @@ const Contact = ({ darkMode }) => {
                                     : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
                             }`}
                         >
-                            <AnimatedText>{t.instagram}</AnimatedText>
+                            Instagram
                         </a>
                         <a
                             href={`${import.meta.env.BASE_URL}resume.pdf`}
@@ -168,7 +159,7 @@ const Contact = ({ darkMode }) => {
                                     : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
                             }`}
                         >
-                            <AnimatedText>{t.resume}</AnimatedText>
+                            Resume
                         </a>
                     </div>
                 </motion.div>
@@ -189,7 +180,7 @@ const Contact = ({ darkMode }) => {
                         }`}
                     >
                         <Send size={16} />
-                        <AnimatedText as="span">{t.sendEmail}</AnimatedText>
+                        <span>Send me an email</span>
                     </a>
                 </motion.div>
             </motion.div>
