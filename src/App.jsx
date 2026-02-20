@@ -12,11 +12,11 @@ import ScrollToTop from './components/ScrollToTop'
 import { motion } from 'framer-motion'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true) // Start in dark mode
+  const [darkMode, setDarkMode] = useState(false) // Start in light mode
 
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode')
-    const isDark = savedMode === null ? true : savedMode === 'true'
+    const isDark = savedMode === null ? false : savedMode === 'true'
     setDarkMode(isDark)
     document.documentElement.classList.toggle('dark', isDark)
     document.documentElement.classList.toggle('light', !isDark)
@@ -38,7 +38,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className={`min-h-screen transition-colors duration-300 ${
-        darkMode ? 'bg-[#0a0a0a] text-white' : 'bg-white text-gray-900'
+        darkMode ? 'bg-[#0a0a0a] text-white' : 'bg-[#f5f5f5] text-gray-900'
       }`}>
         <div className="flex">
           {/* Desktop Sidebar */}

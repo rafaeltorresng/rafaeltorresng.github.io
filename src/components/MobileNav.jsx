@@ -48,7 +48,7 @@ const MobileNav = ({ darkMode }) => {
                             exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                             className={`fixed top-0 left-0 h-full w-64 z-40 overflow-y-auto ${
-                                darkMode ? 'bg-[#0a0a0a]' : 'bg-white'
+                                darkMode ? 'bg-[#0a0a0a]' : 'bg-[#f5f5f5]'
                             }`}
                         >
                             <div className="px-8 pt-24 pb-12 flex flex-col h-full">

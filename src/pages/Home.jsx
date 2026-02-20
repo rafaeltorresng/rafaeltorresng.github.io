@@ -16,20 +16,20 @@ const Home = ({ darkMode }) => {
                     >
                         {/* Name & Title */}
                         <div className="space-y-3">
-                            <h1 className={`text-4xl font-light tracking-tight transition-colors ${
+                            <h1 className={`text-3xl font-normal tracking-tight transition-colors ${
                                 darkMode ? 'text-white' : 'text-gray-900'
                             }`}>
                                 Rafael Torres
                             </h1>
-                            <p className={`text-base font-light ${
-                                darkMode ? 'text-gray-500' : 'text-gray-400'
+                            <p className={`text-base font-medium ${
+                                darkMode ? 'text-gray-400' : 'text-gray-600'
                             }`}>
-                                Brazilian software engineer and computer sciense student who loves to code and learn new things.
+                                Brazilian software engineer and computer science student who loves to learn new things.
                             </p>
                         </div>
                         
                         {/* Bio */}
-                        <div className={`space-y-4 text-sm leading-relaxed font-light max-w-xl ${
+                        <div className={`space-y-4 text-lg leading-relaxed font-normal max-w-xl ${
                             darkMode ? 'text-gray-400' : 'text-gray-600'
                         }`}>
                             <p>
@@ -43,7 +43,7 @@ const Home = ({ darkMode }) => {
 
                         {/* Current Work */}
                         <div>
-                            <p className={`text-xs font-light mb-2 ${
+                            <p className={`text-sm font-normal mb-2 ${
                                 darkMode ? 'text-gray-600' : 'text-gray-400'
                             }`}>
                                 Currently
@@ -52,7 +52,7 @@ const Home = ({ darkMode }) => {
                                 to="/experiences"
                                 className="group inline-flex items-center gap-2"
                             >
-                                <span className={`text-sm font-light transition-opacity duration-200 group-hover:opacity-60 ${
+                                <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
                                     darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
                                     Working at SeverinoBiu as Software Engineer

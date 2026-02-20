@@ -13,7 +13,7 @@ const Sidebar = ({ darkMode }) => {
 
     return (
         <aside className={`w-64 sidebar-fixed transition-colors duration-300 ${
-            darkMode ? 'bg-[#0a0a0a]' : 'bg-white'
+            darkMode ? 'bg-[#0a0a0a]' : 'bg-[#f5f5f5]'
         }`}>
             <div className="px-8 pt-24 pb-12 flex flex-col h-full">
                 {/* Navigation - Top */}
@@ -28,7 +28,7 @@ const Sidebar = ({ darkMode }) => {
                             key={link.path}
                             to={link.path}
                             className={({ isActive }) =>
-                                `block py-1 text-sm font-light transition-colors duration-200 ${
+                                `block py-1 text-base font-normal transition-colors duration-200 ${
                                     isActive
                                         ? darkMode
                                             ? 'text-white'
@@ -55,7 +55,7 @@ const Sidebar = ({ darkMode }) => {
                     <div className="space-y-1">
                         <a
                             href="mailto:rafaeltorresng@gmail.com"
-                            className={`block text-xs font-light transition-colors duration-200 ${
+                            className={`block text-sm font-normal transition-colors duration-200 ${
                                 darkMode
                                     ? 'text-gray-500 hover:text-gray-300'
                                     : 'text-gray-400 hover:text-gray-700'
@@ -66,7 +66,7 @@ const Sidebar = ({ darkMode }) => {
                         <a
                             href={`${import.meta.env.BASE_URL}resume.pdf`}
                             download
-                            className={`block text-xs font-light transition-colors duration-200 ${
+                            className={`block text-sm font-normal transition-colors duration-200 ${
                                 darkMode
                                     ? 'text-gray-500 hover:text-gray-300'
                                     : 'text-gray-400 hover:text-gray-700'

@@ -11,12 +11,12 @@ const Contact = ({ darkMode }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-light mb-6 transition-colors ${
+                    <h1 className={`text-xl font-normal mb-6 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
                         Get In Touch
                     </h1>
-                    <p className={`text-sm font-light leading-relaxed ${
+                    <p className={`text-lg font-normal leading-relaxed ${
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                         I'm always interested in discussing new opportunities, innovative projects, 
@@ -28,14 +28,14 @@ const Contact = ({ darkMode }) => {
                 <div className="space-y-8">
                     {/* Email */}
                     <div>
-                        <p className={`text-xs font-light mb-2 ${
+                        <p className={`text-sm font-normal mb-2 ${
                             darkMode ? 'text-gray-600' : 'text-gray-400'
                         }`}>
                             Email
                         </p>
                         <a
                             href="mailto:rafaeltorresng@gmail.com"
-                            className={`text-sm font-light transition-opacity duration-200 hover:opacity-60 ${
+                            className={`text-lg font-normal transition-opacity duration-200 hover:opacity-60 ${
                                 darkMode ? 'text-gray-400' : 'text-gray-600'
                             }`}
                         >
@@ -45,14 +45,14 @@ const Contact = ({ darkMode }) => {
 
                     {/* Phone */}
                     <div>
-                        <p className={`text-xs font-light mb-2 ${
+                        <p className={`text-sm font-normal mb-2 ${
                             darkMode ? 'text-gray-600' : 'text-gray-400'
                         }`}>
                             Phone
                         </p>
                         <a
                             href="tel:+5581982512792"
-                            className={`text-sm font-light transition-opacity duration-200 hover:opacity-60 ${
+                            className={`text-lg font-normal transition-opacity duration-200 hover:opacity-60 ${
                                 darkMode ? 'text-gray-400' : 'text-gray-600'
                             }`}
                         >
@@ -62,12 +62,12 @@ const Contact = ({ darkMode }) => {
 
                     {/* Location */}
                     <div>
-                        <p className={`text-xs font-light mb-2 ${
+                        <p className={`text-sm font-normal mb-2 ${
                             darkMode ? 'text-gray-600' : 'text-gray-400'
                         }`}>
                             Location
                         </p>
-                        <p className={`text-sm font-light ${
+                        <p className={`text-lg font-normal ${
                             darkMode ? 'text-gray-400' : 'text-gray-600'
                         }`}>
                             João Pessoa, PB, Brazil
@@ -76,12 +76,12 @@ const Contact = ({ darkMode }) => {
 
                     {/* Social Links */}
                     <div>
-                        <p className={`text-xs font-light mb-3 ${
+                        <p className={`text-sm font-normal mb-3 ${
                             darkMode ? 'text-gray-600' : 'text-gray-400'
                         }`}>
                             Links
                         </p>
-                        <div className="flex gap-6 text-sm font-light">
+                        <div className="flex gap-6 text-lg font-normal">
                             <a
                                 href="https://github.com/rafaeltorresng"
                                 target="_blank"

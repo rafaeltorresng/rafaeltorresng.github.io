@@ -35,7 +35,7 @@ const Projects = ({ darkMode }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-light mb-2 transition-colors ${
+                    <h1 className={`text-xl font-normal mb-2 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
                         Projects
@@ -50,7 +50,7 @@ const Projects = ({ darkMode }) => {
                             className="group"
                         >
                             <div className="flex items-start justify-between gap-4 mb-2">
-                                <h3 className={`text-sm font-normal transition-opacity duration-200 group-hover:opacity-60 ${
+                                <h3 className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
                                     darkMode ? 'text-white' : 'text-gray-900'
                                 }`}>
                                     {project.title}
@@ -67,7 +67,7 @@ const Projects = ({ darkMode }) => {
                                 </a>
                             </div>
                             
-                            <p className={`text-sm font-light leading-relaxed ${
+                            <p className={`text-lg font-normal leading-relaxed ${
                                 darkMode ? 'text-gray-400' : 'text-gray-600'
                             }`}>
                                 {project.description}

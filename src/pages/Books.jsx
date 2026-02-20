@@ -56,7 +56,7 @@ const Books = ({ darkMode }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-light mb-2 transition-colors ${
+                    <h1 className={`text-xl font-normal mb-2 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
                         Books
@@ -82,18 +82,18 @@ const Books = ({ darkMode }) => {
                                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 ${
                                     darkMode ? 'bg-black/80' : 'bg-white/90'
                                 }`}>
-                                    <h3 className={`text-xs font-normal mb-1 line-clamp-2 ${
+                                    <h3 className={`text-sm font-normal mb-1 line-clamp-2 ${
                                         darkMode ? 'text-white' : 'text-gray-900'
                                     }`}>
                                         {book.title}
                                     </h3>
-                                    <p className={`text-xs font-light ${
+                                    <p className={`text-sm font-normal ${
                                         darkMode ? 'text-gray-400' : 'text-gray-600'
                                     }`}>
                                         {book.author}
                                     </p>
                                     {book.reading && (
-                                        <p className={`text-xs font-light mt-2 ${
+                                        <p className={`text-sm font-normal mt-2 ${
                                             darkMode ? 'text-gray-500' : 'text-gray-400'
                                         }`}>
                                             Reading

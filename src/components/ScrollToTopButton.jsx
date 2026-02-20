@@ -51,7 +51,7 @@ const ScrollToTopButton = ({ darkMode }) => {
                     className={`fixed bottom-8 right-8 z-40 p-3 rounded-full shadow-lg backdrop-blur-sm transition-colors duration-300 ${
                         darkMode
                             ? 'bg-gray-800/90 hover:bg-gray-700 text-white border border-gray-700'
-                            : 'bg-white/90 hover:bg-gray-50 text-gray-900 border border-gray-200'
+                            : 'bg-white/95 hover:bg-gray-100 text-gray-900 border border-gray-200'
                     }`}
                     aria-label="Scroll to top"
                 >

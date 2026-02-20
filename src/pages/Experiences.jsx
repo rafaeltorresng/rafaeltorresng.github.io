@@ -76,7 +76,7 @@ const Experiences = ({ darkMode }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-light mb-2 transition-colors ${
+                    <h1 className={`text-xl font-normal mb-2 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
                         Experience
@@ -122,7 +122,7 @@ const Experiences = ({ darkMode }) => {
                                 {/* Content */}
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-baseline justify-between gap-4 mb-1">
-                                        <h3 className={`text-sm font-normal ${
+                                        <h3 className={`text-base font-normal ${
                                             darkMode ? 'text-white' : 'text-gray-900'
                                         }`}>
                                             {exp.title}
@@ -141,19 +141,19 @@ const Experiences = ({ darkMode }) => {
                                         )}
                                     </div>
                                     
-                                    <p className={`text-sm font-light mb-1 ${
+                                    <p className={`text-sm font-normal mb-1 ${
                                         darkMode ? 'text-gray-500' : 'text-gray-400'
                                     }`}>
                                         {exp.company}
                                     </p>
 
-                                    <p className={`text-xs font-light mb-3 ${
+                                    <p className={`text-sm font-normal mb-3 ${
                                         darkMode ? 'text-gray-600' : 'text-gray-400'
                                     }`}>
                                         {exp.period}
                                     </p>
 
-                                    <p className={`text-sm font-light leading-relaxed ${
+                                    <p className={`text-lg font-normal leading-relaxed ${
                                         darkMode ? 'text-gray-400' : 'text-gray-600'
                                     }`}>
                                         {exp.description}
