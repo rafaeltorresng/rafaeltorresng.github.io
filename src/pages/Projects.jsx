@@ -22,6 +22,11 @@ const Projects = ({ darkMode }) => {
             title: 'TARG (Time-series Analysis Report Generator)',
             description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
             github: 'https://github.com/Vitoreism/TARG'
+        },
+        {
+            title: 'Machine Learning',
+            description: 'This repository is to show some of my Machine Learning, Deep Learning and Statistical Modeling algorithms implementations.',
+            github: 'https://github.com/rafaeltorresng/Machine_Learning'
         }
     ]
 
