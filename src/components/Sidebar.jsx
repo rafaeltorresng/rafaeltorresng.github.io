@@ -7,7 +7,7 @@ const Sidebar = ({ darkMode }) => {
         { name: 'Intro', path: '/' },
         { name: 'Experience', path: '/experiences' },
         { name: 'Projects', path: '/projects' },
-        { name: 'Books', path: '/books' },
+        { name: 'Refs', path: '/books' },
         { name: 'Contact', path: '/contact' },
     ]
 
