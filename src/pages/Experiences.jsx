@@ -10,7 +10,8 @@ const Experiences = ({ darkMode }) => {
             description: 'Crafting tools.',
             current: true,
             logo: 'SB.png',
-            link: 'https://severinobiu.com.br/'
+            link: 'https://severinobiu.com.br/',
+            asset: 'SB.png'
         },
         {
             title: 'AI Researcher (ARIA & UPenn)',
@@ -18,7 +19,9 @@ const Experiences = ({ darkMode }) => {
             period: 'Aug 2025 - Present',
             description: 'Conducting collaborative research with UPenn on machine learning for healthcare applications.',
             current: true,
-            logo: 'aria.png'
+            logo: 'aria.png',
+            link: 'https://aria.ci.ufpb.br/',
+            asset: 'aria.png'
         },
         {
             title: 'Student Member',
@@ -26,7 +29,9 @@ const Experiences = ({ darkMode }) => {
             period: 'July 2025 - Present',
             description: 'Advancing skills in Machine Learning, Data Science, and Deep Learning by developing AI projects.',
             current: true,
-            logo: 'tail.png'
+            logo: 'tail.png',
+            link: 'https://www.instagram.com/tailufpb/?hl=en',
+            asset: 'tail.png'
         },
         {
             title: 'Software Engineer',
@@ -34,7 +39,9 @@ const Experiences = ({ darkMode }) => {
             period: 'Oct 2025 (1 month)',
             description: 'Engineered tools for an internal application that served as the data backbone for a client product.',
             current: false,
-            logo: 'deco.png'
+            logo: 'deco.png',
+            link: 'https://www.decocms.com/',
+            asset: 'deco.png'
         },
         {
             title: 'AI Researcher Intern',
@@ -52,7 +59,9 @@ const Experiences = ({ darkMode }) => {
             period: 'Dec 2024 - March 2025',
             description: 'AI research support: data preparation, exploratory analysis, and development of multi-agent systems for sales automation (CrewAI).',
             current: false,
-            logo: 'tril-logo.png'
+            logo: 'tril-logo.png',
+            link: 'https://tril.ci.ufpb.br/en/',
+            asset: 'tril-logo.png'
         },
         {
             title: 'Trainee',
@@ -61,7 +70,7 @@ const Experiences = ({ darkMode }) => {
             description: 'Developed skills in AI/programming logic. Gained experience with software development tools, best practices, and ML pipelines.',
             current: false,
             logo: 'trilha.png',
-            link: 'https://www.linkedin.com/feed/update/urn:li:activity:7289706489248641025/?originalSubdomain=pt',
+            link: 'https://www.trilhaufpb.com/',
             asset: 'Trilhahack.png'
         }
     ]
@@ -94,7 +103,7 @@ const Experiences = ({ darkMode }) => {
                                 {/* Logo */}
                                 <div className="w-10 h-10 rounded flex-shrink-0 flex items-center justify-center bg-white border border-gray-100 overflow-hidden">
                                     {exp.logo && (
-                                        exp.link && exp.company === 'SeverinoBiu' ? (
+                                        exp.link && (exp.company === 'SeverinoBiu' || exp.company === 'ARIA' || exp.company === 'TAIL - Technology and Artificial Intelligence League' || exp.company === 'TRIL Lab' || exp.company === 'Trilha') ? (
                                             <a
                                                 href={exp.link}
                                                 target="_blank"

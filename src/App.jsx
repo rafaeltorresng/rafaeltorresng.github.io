@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import Sidebar from './components/Sidebar'
 import MobileNav from './components/MobileNav'
 import ScrollToTopButton from './components/ScrollToTopButton'
@@ -9,7 +10,23 @@ import Projects from './pages/Projects'
 import Books from './pages/Books'
 import Contact from './pages/Contact'
 import ScrollToTop from './components/ScrollToTop'
-import { motion } from 'framer-motion'
+import PageTransition from './components/PageTransition'
+
+function AnimatedRoutes({ darkMode }) {
+  const location = useLocation()
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home darkMode={darkMode} /></PageTransition>} />
+        <Route path="/experiences" element={<PageTransition><Experiences darkMode={darkMode} /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><Projects darkMode={darkMode} /></PageTransition>} />
+        <Route path="/books" element={<PageTransition><Books darkMode={darkMode} /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact darkMode={darkMode} /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  )
+}
 
 function App() {
   const [darkMode, setDarkMode] = useState(false) // Start in light mode
@@ -65,13 +82,7 @@ function App() {
               {darkMode ? 'Dark' : 'Light'}
             </motion.button>
 
-            <Routes>
-              <Route path="/" element={<Home darkMode={darkMode} />} />
-              <Route path="/experiences" element={<Experiences darkMode={darkMode} />} />
-              <Route path="/projects" element={<Projects darkMode={darkMode} />} />
-              <Route path="/books" element={<Books darkMode={darkMode} />} />
-              <Route path="/contact" element={<Contact darkMode={darkMode} />} />
-            </Routes>
+            <AnimatedRoutes darkMode={darkMode} />
 
             {/* Scroll to Top Button */}
             <ScrollToTopButton darkMode={darkMode} />
