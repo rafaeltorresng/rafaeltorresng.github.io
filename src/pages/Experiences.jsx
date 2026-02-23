@@ -10,7 +10,7 @@ const Experiences = ({ darkMode }) => {
             description: 'Crafting tools.',
             current: true,
             logo: 'SB.png',
-            link: 'https://severinobiu.com.br/',
+            link: 'https://www.santanainteligencia.com.br/',
             asset: 'SB.png'
         },
         {
