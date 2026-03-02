@@ -27,11 +27,21 @@ const Home = ({ darkMode }) => {
                     >
                         {/* Name & Title */}
                         <div className="space-y-3">
-                            <h1 className={`text-3xl font-normal tracking-tight transition-colors ${
-                                darkMode ? 'text-white' : 'text-gray-900'
-                            }`}>
-                                Rafael Torres
-                            </h1>
+                            <div className="flex items-center gap-4">
+                                <motion.img
+                                    src={`${import.meta.env.BASE_URL}rtng.png`}
+                                    alt="Rafael Torres"
+                                    className="w-16 h-16 rounded-full object-cover"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.6, delay: 0.2 }}
+                                />
+                                <h1 className={`text-3xl font-normal tracking-tight transition-colors ${
+                                    darkMode ? 'text-white' : 'text-gray-900'
+                                }`}>
+                                    Rafael Torres
+                                </h1>
+                            </div>
                             <p className={`text-base font-medium ${
                                 darkMode ? 'text-gray-400' : 'text-gray-600'
                             }`}>
@@ -48,7 +58,11 @@ const Home = ({ darkMode }) => {
                             </p>
                             
                             <p>
-                                I have always found a quiet magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for their potential to make the everyday smarter and simpler.
+                                I have always found a kind of magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for their potential to make the everyday smarter and simpler.
+                            </p>
+                            
+                            <p>
+                                Outside of work I'm obsessed with sports, music and travelling.
                             </p>
                         </div>
 
