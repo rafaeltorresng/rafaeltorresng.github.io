@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const Contact = ({ darkMode }) => {
     return (
-        <div className="min-h-[60vh] flex items-start px-12 pt-24 pb-16">
+        <div className="min-h-[60vh] flex items-start px-6 sm:px-12 lg:px-24 xl:px-32 pt-24 pb-16 max-w-7xl mx-auto">
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

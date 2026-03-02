@@ -80,7 +80,7 @@ const Books = ({ darkMode }) => {
     ]
 
     return (
-        <div className="min-h-screen px-12 py-24">
+        <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-32 py-24 max-w-7xl mx-auto">
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

@@ -7,7 +7,7 @@ const Experiences = ({ darkMode }) => {
             title: 'Software Engineer',
             company: 'SeverinoBiu',
             period: 'Nov 2025 - Present',
-            description: 'Crafting tools.',
+            description: 'Building and maintaining a production web application as a full-stack engineer.',
             current: true,
             logo: 'SB.png',
             link: 'https://www.santanainteligencia.com.br/',
@@ -76,7 +76,7 @@ const Experiences = ({ darkMode }) => {
     ]
 
     return (
-        <div className="min-h-screen px-12 py-24">
+        <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-32 py-24 max-w-7xl mx-auto">
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -101,7 +101,7 @@ const Experiences = ({ darkMode }) => {
                         >
                             <div className="flex items-start gap-4">
                                 {/* Logo */}
-                                <div className="w-10 h-10 rounded flex-shrink-0 flex items-center justify-center bg-white border border-gray-100 overflow-hidden">
+                                <div className="w-14 h-14 rounded flex-shrink-0 flex items-center justify-center bg-white border border-gray-100 overflow-hidden">
                                     {exp.logo && (
                                         exp.link && (exp.company === 'SeverinoBiu' || exp.company === 'ARIA' || exp.company === 'TAIL - Technology and Artificial Intelligence League' || exp.company === 'TRIL Lab' || exp.company === 'Trilha') ? (
                                             <a

@@ -17,7 +17,7 @@ const Home = ({ darkMode }) => {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <div className="min-h-[60vh] flex items-start px-12 pt-24 pb-16">
+            <div className="min-h-[60vh] flex items-start px-6 sm:px-12 lg:px-24 xl:px-32 pt-24 pb-16 max-w-7xl mx-auto">
                 <div className="max-w-2xl">
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -27,16 +27,16 @@ const Home = ({ darkMode }) => {
                     >
                         {/* Name & Title */}
                         <div className="space-y-3">
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3 sm:gap-4">
                                 <motion.img
                                     src={`${import.meta.env.BASE_URL}rtng.png`}
                                     alt="Rafael Torres"
-                                    className="w-16 h-16 rounded-full object-cover"
+                                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover flex-shrink-0"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.6, delay: 0.2 }}
                                 />
-                                <h1 className={`text-3xl font-normal tracking-tight transition-colors ${
+                                <h1 className={`text-2xl sm:text-3xl font-normal tracking-tight transition-colors ${
                                     darkMode ? 'text-white' : 'text-gray-900'
                                 }`}>
                                     Rafael Torres
@@ -50,7 +50,7 @@ const Home = ({ darkMode }) => {
                         </div>
                         
                         {/* Bio */}
-                        <div className={`space-y-4 text-lg leading-relaxed font-normal max-w-xl ${
+                        <div className={`space-y-4 text-base sm:text-lg leading-relaxed font-normal max-w-xl ${
                             darkMode ? 'text-gray-400' : 'text-gray-600'
                         }`}>
                             <p>

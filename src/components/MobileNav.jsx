@@ -47,11 +47,44 @@ const MobileNav = ({ darkMode }) => {
                             animate={{ x: 0 }}
                             exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className={`fixed top-0 left-0 h-full w-64 z-40 overflow-y-auto ${
+                            className={`fixed top-0 left-0 h-full w-64 z-40 overflow-y-auto relative ${
                                 darkMode ? 'bg-[#0a0a0a]' : 'bg-[#f5f5f5]'
                             }`}
                         >
-                            <div className="px-8 pt-24 pb-12 flex flex-col h-full">
+                            {/* Dark mode background */}
+                            <div 
+                                className="absolute inset-0 transition-opacity duration-500"
+                                style={{
+                                    backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3122.JPG)`,
+                                    backgroundPosition: 'top center',
+                                    backgroundSize: 'cover',
+                                    opacity: darkMode ? 0.6 : 0,
+                                    zIndex: 0
+                                }}
+                            />
+                            
+                            {/* Light mode background */}
+                            <div 
+                                className="absolute inset-0 transition-opacity duration-500"
+                                style={{
+                                    backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3124%202.JPG)`,
+                                    backgroundPosition: 'top center',
+                                    backgroundSize: 'cover',
+                                    opacity: darkMode ? 0 : 0.6,
+                                    zIndex: 0
+                                }}
+                            />
+                            
+                            {/* Overlay for better text readability */}
+                            <div 
+                                className="absolute inset-0 transition-colors duration-500"
+                                style={{
+                                    backgroundColor: darkMode ? 'rgba(10, 10, 10, 0.5)' : 'rgba(245, 245, 245, 0.5)',
+                                    zIndex: 1
+                                }}
+                            />
+                            
+                            <div className="px-8 pt-24 pb-12 flex flex-col h-full relative z-10">
                                 {/* Navigation - Top */}
                                 <nav className="flex-1 space-y-1">
                                     {navLinks.map((link) => (
@@ -60,14 +93,14 @@ const MobileNav = ({ darkMode }) => {
                                             to={link.path}
                                             onClick={() => setIsOpen(false)}
                                             className={({ isActive }) =>
-                                                `block py-1 text-sm font-light transition-colors duration-200 ${
+                                                `block py-1 text-base font-medium transition-colors duration-200 ${
                                                     isActive
                                                         ? darkMode
                                                             ? 'text-white'
                                                             : 'text-gray-900'
                                                         : darkMode
-                                                        ? 'text-gray-500 hover:text-gray-300'
-                                                        : 'text-gray-400 hover:text-gray-700'
+                                                        ? 'text-gray-300 hover:text-white'
+                                                        : 'text-gray-600 hover:text-gray-900'
                                                 }`
                                             }
                                         >
@@ -82,10 +115,10 @@ const MobileNav = ({ darkMode }) => {
                                     <div className="space-y-1">
                                         <a
                                             href="mailto:rafaeltorresng@gmail.com"
-                                            className={`block text-xs font-light transition-colors duration-200 ${
+                                            className={`block text-sm font-medium transition-colors duration-200 ${
                                                 darkMode
-                                                    ? 'text-gray-500 hover:text-gray-300'
-                                                    : 'text-gray-400 hover:text-gray-700'
+                                                    ? 'text-gray-300 hover:text-white'
+                                                    : 'text-gray-600 hover:text-gray-900'
                                             }`}
                                         >
                                             Email
@@ -93,10 +126,10 @@ const MobileNav = ({ darkMode }) => {
                                         <a
                                             href={`${import.meta.env.BASE_URL}resume.pdf`}
                                             download
-                                            className={`block text-xs font-light transition-colors duration-200 ${
+                                            className={`block text-sm font-medium transition-colors duration-200 ${
                                                 darkMode
-                                                    ? 'text-gray-500 hover:text-gray-300'
-                                                    : 'text-gray-400 hover:text-gray-700'
+                                                    ? 'text-gray-300 hover:text-white'
+                                                    : 'text-gray-600 hover:text-gray-900'
                                             }`}
                                         >
                                             Resume
@@ -110,7 +143,7 @@ const MobileNav = ({ darkMode }) => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={`transition-opacity duration-200 hover:opacity-60 ${
-                                                darkMode ? 'text-gray-500' : 'text-gray-400'
+                                                darkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}
                                         >
                                             <Github size={16} />
@@ -120,7 +153,7 @@ const MobileNav = ({ darkMode }) => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={`transition-opacity duration-200 hover:opacity-60 ${
-                                                darkMode ? 'text-gray-500' : 'text-gray-400'
+                                                darkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}
                                         >
                                             <Linkedin size={16} />
@@ -130,7 +163,7 @@ const MobileNav = ({ darkMode }) => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={`transition-opacity duration-200 hover:opacity-60 ${
-                                                darkMode ? 'text-gray-500' : 'text-gray-400'
+                                                darkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}
                                         >
                                             <Instagram size={16} />
