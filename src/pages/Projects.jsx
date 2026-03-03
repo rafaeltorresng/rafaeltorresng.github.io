@@ -9,7 +9,7 @@ const Projects = ({ darkMode }) => {
             github: 'https://github.com/rafaeltorresng/Blonded-AI'
         },
         {
-            title: 'GuardAzul',
+            title: 'GuardAzul - (Top-4 Finalist, Paraíba Statewide Hackathon)',
             description: 'A mobile app designed to protect the coastal ecosystems of Paraíba, Brazil. This project integrates a React Native (Expo) mobile application with a Python (FastAPI) RESTful API and a PostgreSQL database. The platform leverages Google\'s AI (Gemini and Vision) to power an informative chatbot and to automatically validate environmental reports submitted by users.',
             github: 'https://github.com/luigischmitt/GuardAzul'
         },
