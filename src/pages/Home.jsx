@@ -82,7 +82,7 @@ const Home = ({ darkMode }) => {
                                 <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
                                     darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
-                                    Working at SeverinoBiu as Software Engineer
+                                    Working at SeverinoBiu as Founding Software Engineer
                                 </span>
                                 <ArrowUpRight 
                                     size={14} 

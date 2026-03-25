@@ -4,7 +4,7 @@ import { ExternalLink } from 'lucide-react'
 const Experiences = ({ darkMode }) => {
     const experience = [
         {
-            title: 'Software Engineer',
+            title: 'Founding Software Engineer',
             company: 'SeverinoBiu',
             period: 'Nov 2025 - Present',
             description: 'Building and maintaining a production web application as a full-stack engineer.',
