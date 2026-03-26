@@ -1,10 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Github, Linkedin, Instagram } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
 const MobileNav = ({ darkMode }) => {
     const [isOpen, setIsOpen] = useState(false)
+
+    // Lock body scroll when menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [isOpen])
 
     const navLinks = [
         { name: 'Intro', path: '/' },
@@ -14,18 +26,68 @@ const MobileNav = ({ darkMode }) => {
         { name: 'Contact', path: '/contact' },
     ]
 
+    const sidebarVariants = {
+        closed: {
+            x: '-100%',
+            transition: {
+                type: 'spring',
+                damping: 40,
+                stiffness: 400
+            }
+        },
+        open: {
+            x: 0,
+            transition: {
+                type: 'spring',
+                damping: 30,
+                stiffness: 300
+            }
+        }
+    }
+
+    const staggeredLinksVariants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: (i) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: 0.1 + i * 0.05,
+                ease: 'easeOut'
+            }
+        })
+    }
+
     return (
         <div className="lg:hidden">
             {/* Menu Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed top-6 left-6 z-50 p-3 rounded-full transition-colors ${
-                    darkMode
-                        ? 'bg-gray-800 hover:bg-gray-700 text-white'
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                }`}
+                className="fixed top-8 left-8 z-50 p-2 focus:outline-none group"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-                {isOpen ? <X size={20} /> : <Menu size={20} />}
+                <div className="w-5 h-4 relative flex flex-col justify-between">
+                    <motion.span
+                        animate={isOpen ? { rotate: 45, y: 7.5 } : { rotate: 0, y: 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        className={`w-full h-[1.2px] block rounded-full transition-colors duration-300 origin-center ${
+                            darkMode ? 'bg-white' : 'bg-gray-900'
+                        }`}
+                    />
+                    <motion.span
+                        animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={`w-full h-[1.2px] block rounded-full transition-colors duration-300 ${
+                            darkMode ? 'bg-white' : 'bg-gray-900'
+                        }`}
+                    />
+                    <motion.span
+                        animate={isOpen ? { rotate: -45, y: -7.5 } : { rotate: 0, y: 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        className={`w-full h-[1.2px] block rounded-full transition-colors duration-300 origin-center ${
+                            darkMode ? 'bg-white' : 'bg-gray-900'
+                        }`}
+                    />
+                </div>
             </button>
 
             {/* Mobile Menu Overlay */}
@@ -38,80 +100,86 @@ const MobileNav = ({ darkMode }) => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
                         />
 
                         {/* Menu Panel */}
                         <motion.div
-                            initial={{ x: '-100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '-100%' }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className={`fixed top-0 left-0 h-full w-64 z-40 overflow-y-auto relative ${
+                            variants={sidebarVariants}
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            className={`fixed top-0 left-0 h-full w-[280px] z-40 shadow-2xl overflow-hidden ${
                                 darkMode ? 'bg-[#0a0a0a]' : 'bg-[#f5f5f5]'
                             }`}
                         >
-                            {/* Dark mode background */}
-                            <div 
-                                className="absolute inset-0 transition-opacity duration-500"
-                                style={{
-                                    backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3122.JPG)`,
-                                    backgroundPosition: 'top center',
-                                    backgroundSize: 'cover',
-                                    opacity: darkMode ? 0.6 : 0,
-                                    zIndex: 0
-                                }}
-                            />
+                            {/* Background Images with better handling */}
+                            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                                <div 
+                                    className="absolute inset-0 transition-opacity duration-700"
+                                    style={{
+                                        backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3122.JPG)`,
+                                        backgroundPosition: 'top center',
+                                        backgroundSize: 'cover',
+                                        opacity: darkMode ? 0.5 : 0,
+                                    }}
+                                />
+                                <div 
+                                    className="absolute inset-0 transition-opacity duration-700"
+                                    style={{
+                                        backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3124%202.JPG)`,
+                                        backgroundPosition: 'top center',
+                                        backgroundSize: 'cover',
+                                        opacity: darkMode ? 0 : 0.5,
+                                    }}
+                                />
+                                <div 
+                                    className="absolute inset-0 transition-colors duration-700"
+                                    style={{
+                                        backgroundColor: darkMode ? 'rgba(10, 10, 10, 0.4)' : 'rgba(245, 245, 245, 0.4)',
+                                    }}
+                                />
+                            </div>
                             
-                            {/* Light mode background */}
-                            <div 
-                                className="absolute inset-0 transition-opacity duration-500"
-                                style={{
-                                    backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3124%202.JPG)`,
-                                    backgroundPosition: 'top center',
-                                    backgroundSize: 'cover',
-                                    opacity: darkMode ? 0 : 0.6,
-                                    zIndex: 0
-                                }}
-                            />
-                            
-                            {/* Overlay for better text readability */}
-                            <div 
-                                className="absolute inset-0 transition-colors duration-500"
-                                style={{
-                                    backgroundColor: darkMode ? 'rgba(10, 10, 10, 0.5)' : 'rgba(245, 245, 245, 0.5)',
-                                    zIndex: 1
-                                }}
-                            />
-                            
-                            <div className="px-8 pt-24 pb-12 flex flex-col h-full relative z-10">
-                                {/* Navigation - Top */}
-                                <nav className="flex-1 space-y-1">
-                                    {navLinks.map((link) => (
-                                        <NavLink
+                            <div className="relative z-10 flex flex-col h-full pt-28 px-8 pb-10 overflow-y-auto scrollbar-hide">
+                                {/* Navigation */}
+                                <nav className="space-y-1">
+                                    {navLinks.map((link, i) => (
+                                        <motion.div
                                             key={link.path}
-                                            to={link.path}
-                                            onClick={() => setIsOpen(false)}
-                                            className={({ isActive }) =>
-                                                `block py-1 text-base font-medium transition-colors duration-200 ${
-                                                    isActive
-                                                        ? darkMode
-                                                            ? 'text-white'
-                                                            : 'text-gray-900'
-                                                        : darkMode
-                                                        ? 'text-gray-300 hover:text-white'
-                                                        : 'text-gray-600 hover:text-gray-900'
-                                                }`
-                                            }
+                                            custom={i}
+                                            variants={staggeredLinksVariants}
+                                            initial="hidden"
+                                            animate="visible"
                                         >
-                                            {link.name}
-                                        </NavLink>
+                                            <NavLink
+                                                to={link.path}
+                                                onClick={() => setIsOpen(false)}
+                                                className={({ isActive }) =>
+                                                    `block py-1 text-base font-medium transition-colors duration-200 ${
+                                                        isActive
+                                                            ? darkMode
+                                                                ? 'text-white'
+                                                                : 'text-gray-900'
+                                                            : darkMode
+                                                            ? 'text-gray-300 hover:text-white'
+                                                            : 'text-gray-600 hover:text-gray-900'
+                                                    }`
+                                                }
+                                            >
+                                                {link.name}
+                                            </NavLink>
+                                        </motion.div>
                                     ))}
                                 </nav>
 
-                                {/* Contact & Social */}
-                                <div className="space-y-6">
-                                    {/* Email & Resume */}
+                                {/* Contact & Social - Pushed to allow natural flow but always reachable */}
+                                <motion.div 
+                                    className="mt-12 sm:mt-auto space-y-6"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.4 }}
+                                >
                                     <div className="space-y-1">
                                         <a
                                             href="mailto:rafaeltorresng@gmail.com"
@@ -169,7 +237,7 @@ const MobileNav = ({ darkMode }) => {
                                             <Instagram size={16} />
                                         </a>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         </motion.div>
                     </>
