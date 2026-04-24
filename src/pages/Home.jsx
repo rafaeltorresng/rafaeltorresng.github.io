@@ -73,10 +73,8 @@ const Home = ({ darkMode }) => {
                             }`}>
                                 Currently
                             </p>
-                            <a
-                                href="https://www.santanainteligencia.com.br/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <Link
+                                to="/experiences"
                                 className="group inline-flex items-center gap-2"
                             >
                                 <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
@@ -90,7 +88,7 @@ const Home = ({ darkMode }) => {
                                         darkMode ? 'text-gray-500' : 'text-gray-400'
                                     }`}
                                 />
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Education */}
