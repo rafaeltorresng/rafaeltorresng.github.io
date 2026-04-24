@@ -37,13 +37,6 @@ const Books = ({ darkMode }) => {
             year: '2017',
             cover: 'datades.jpg',
             reading: true
-        },
-        {
-            title: 'The Silmarillion',
-            author: 'J.R.R. Tolkien',
-            year: '1977',
-            cover: 'sillma.jpg',
-            reading: true
         }
     ]
 
