@@ -6,27 +6,32 @@ const Projects = ({ darkMode }) => {
         {
             title: 'Blonded AI',
             description: 'An intelligent music recommendation system built using Spotify audio embeddings and PCA. Features a sophisticated feature extraction pipeline, similarity computation algorithms, and a personalized recommendation engine with Spotify integration.',
-            github: 'https://github.com/rafaeltorresng/Blonded-AI'
+            link: 'https://github.com/rafaeltorresng/Blonded-AI'
         },
         {
             title: 'GuardAzul - (Top-4 Finalist, Paraíba Statewide Hackathon)',
             description: 'A mobile app designed to protect the coastal ecosystems of Paraíba, Brazil. This project integrates a React Native (Expo) mobile application with a Python (FastAPI) RESTful API and a PostgreSQL database. The platform leverages Google\'s AI (Gemini and Vision) to power an informative chatbot and to automatically validate environmental reports submitted by users.',
-            github: 'https://github.com/luigischmitt/GuardAzul'
+            link: 'https://github.com/luigischmitt/GuardAzul'
         },
         {
             title: 'Brazilian Championship Simulator',
             description: 'A comprehensive football simulation platform that recreates the Brazilian Championship experience. Features intelligent match algorithms, real-time league standings, and dynamic team management with an intuitive web interface built on Java Spring Boot.',
-            github: 'https://github.com/arturpereira12/poo_brasileirao'
+            link: 'https://github.com/arturpereira12/poo_brasileirao'
         },
         {
             title: 'TARG (Time-series Analysis Report Generator)',
             description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
-            github: 'https://github.com/Vitoreism/TARG'
+            link: 'https://github.com/Vitoreism/TARG'
+        },
+        {
+            title: 'A Qu4tro',
+            description: 'A landing page built for A Qu4tro, a traffic services company.',
+            link: 'https://a4servicosdetransito.com.br'
         },
         {
             title: 'Machine Learning',
             description: 'This repository is to show some of my Machine Learning, Deep Learning and Statistical Modeling algorithms implementations.',
-            github: 'https://github.com/rafaeltorresng/Machine_Learning'
+            link: 'https://github.com/rafaeltorresng/Machine_Learning'
         }
     ]
 
@@ -61,7 +66,7 @@ const Projects = ({ darkMode }) => {
                                     {project.title}
                                 </h3>
                                 <a
-                                    href={project.github}
+                                    href={project.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`flex-shrink-0 transition-opacity duration-200 hover:opacity-60 ${
