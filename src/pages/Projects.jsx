@@ -24,6 +24,11 @@ const Projects = ({ darkMode }) => {
             github: 'https://github.com/Vitoreism/TARG'
         },
         {
+            title: 'A Qu4tro',
+            description: 'A landing page built for A Qu4tro, a traffic services company.',
+            github: 'https://a4servicosdetransito.com.br'
+        },
+        {
             title: 'Machine Learning',
             description: 'This repository is to show some of my Machine Learning, Deep Learning and Statistical Modeling algorithms implementations.',
             github: 'https://github.com/rafaeltorresng/Machine_Learning'
