@@ -29,7 +29,7 @@ const Home = ({ darkMode }) => {
                         <div className="space-y-3">
                             <div className="flex items-center gap-6 sm:gap-8">
                                 <motion.img
-                                    src={`${import.meta.env.BASE_URL}rtng.jpg`}
+                                    src={`${import.meta.env.BASE_URL}rtng.png`}
                                     alt="Rafael Torres"
                                     className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover flex-shrink-0"
                                     initial={{ opacity: 0, scale: 0.8 }}
