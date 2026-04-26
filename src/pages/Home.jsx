@@ -27,40 +27,37 @@ const Home = ({ darkMode }) => {
                     >
                         {/* Name & Title */}
                         <div className="space-y-3">
-                            <div className="flex items-center gap-3 sm:gap-4">
+                            <div className="flex items-center gap-6 sm:gap-8">
                                 <motion.img
-                                    src={`${import.meta.env.BASE_URL}rtng.png`}
+                                    src={`${import.meta.env.BASE_URL}rtng.jpg`}
                                     alt="Rafael Torres"
-                                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover flex-shrink-0"
+                                    className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover flex-shrink-0"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.6, delay: 0.2 }}
                                 />
-                                <h1 className={`text-2xl sm:text-3xl font-normal tracking-tight transition-colors ${
-                                    darkMode ? 'text-white' : 'text-gray-900'
-                                }`}>
+                                <h1 className={`text-2xl sm:text-3xl font-normal tracking-tight transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                                    }`}>
                                     Rafael Torres
                                 </h1>
                             </div>
-                            <p className={`text-base font-medium ${
-                                darkMode ? 'text-gray-400' : 'text-gray-600'
-                            }`}>
+                            <p className={`text-base font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
                                 Brazilian software engineer and computer science student who loves to learn new things.
                             </p>
                         </div>
-                        
+
                         {/* Bio */}
-                        <div className={`space-y-4 text-base sm:text-lg leading-relaxed font-normal max-w-xl ${
-                            darkMode ? 'text-gray-400' : 'text-gray-600'
-                        }`}>
+                        <div className={`space-y-4 text-base sm:text-lg leading-relaxed font-normal max-w-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                            }`}>
                             <p>
                                 Passionate about exploring the realms of Software Engineering and Machine Learning.
                             </p>
-                            
+
                             <p>
                                 I have always found a kind of magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for their potential to make the everyday smarter and simpler.
                             </p>
-                            
+
                             <p>
                                 Outside of work I'm obsessed with sports, music and travelling.
                             </p>
@@ -68,25 +65,22 @@ const Home = ({ darkMode }) => {
 
                         {/* Current Work */}
                         <div>
-                            <p className={`text-sm font-normal mb-2 ${
-                                darkMode ? 'text-gray-500' : 'text-gray-500'
-                            }`}>
+                            <p className={`text-sm font-normal mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-500'
+                                }`}>
                                 Currently
                             </p>
                             <Link
                                 to="/experiences"
                                 className="group inline-flex items-center gap-2"
                             >
-                                <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
-                                    darkMode ? 'text-gray-400' : 'text-gray-600'
-                                }`}>
+                                <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                    }`}>
                                     Working at SeverinoBiu as Founding Software Engineer
                                 </span>
-                                <ArrowUpRight 
-                                    size={14} 
-                                    className={`transition-opacity duration-200 group-hover:opacity-60 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-400'
-                                    }`}
+                                <ArrowUpRight
+                                    size={14}
+                                    className={`transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-500' : 'text-gray-400'
+                                        }`}
                                 />
                             </Link>
                         </div>
@@ -94,16 +88,14 @@ const Home = ({ darkMode }) => {
                         {/* Education */}
                         <div>
                             <div className="flex items-center justify-between mb-2">
-                                <p className={`text-sm font-normal ${
-                                    darkMode ? 'text-gray-500' : 'text-gray-500'
-                                }`}>
+                                <p className={`text-sm font-normal ${darkMode ? 'text-gray-500' : 'text-gray-500'
+                                    }`}>
                                     Education
                                 </p>
                                 <button
                                     onClick={() => setShowUFPBExperiences(!showUFPBExperiences)}
-                                    className={`p-1 rounded transition-opacity duration-200 hover:opacity-60 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-400'
-                                    }`}
+                                    className={`p-1 rounded transition-opacity duration-200 hover:opacity-60 ${darkMode ? 'text-gray-500' : 'text-gray-400'
+                                        }`}
                                 >
                                     {showUFPBExperiences ? <X size={14} /> : <Plus size={14} />}
                                 </button>
@@ -116,14 +108,12 @@ const Home = ({ darkMode }) => {
                                     onError={(e) => e.target.style.display = 'none'}
                                 />
                                 <div>
-                                    <p className={`text-base font-normal ${
-                                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                                    }`}>
+                                    <p className={`text-base font-normal ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                        }`}>
                                         Bachelor of Computer Science
                                     </p>
-                                    <p className={`text-sm font-normal ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                                    }`}>
+                                    <p className={`text-sm font-normal ${darkMode ? 'text-gray-500' : 'text-gray-500'
+                                        }`}>
                                         UFPB · 2024 - 2027
                                     </p>
                                 </div>
@@ -136,21 +126,20 @@ const Home = ({ darkMode }) => {
                                         initial={{ opacity: 0, height: 0, marginTop: 0 }}
                                         animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
                                         exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                                        transition={{ 
+                                        transition={{
                                             duration: 0.4,
                                             ease: [0.4, 0, 0.2, 1]
                                         }}
-                                        className={`overflow-hidden pl-11 space-y-2 border-l ${
-                                            darkMode ? 'border-gray-800' : 'border-gray-200'
-                                        }`}
+                                        className={`overflow-hidden pl-11 space-y-2 border-l ${darkMode ? 'border-gray-800' : 'border-gray-200'
+                                            }`}
                                     >
                                         {ufpbExperiences.map((exp, index) => (
-                                            <motion.div 
-                                                key={index} 
+                                            <motion.div
+                                                key={index}
                                                 className="pl-3"
                                                 initial={{ opacity: 0, x: -10 }}
                                                 animate={{ opacity: 1, x: 0 }}
-                                                transition={{ 
+                                                transition={{
                                                     duration: 0.3,
                                                     delay: index * 0.05,
                                                     ease: [0.4, 0, 0.2, 1]
@@ -164,34 +153,29 @@ const Home = ({ darkMode }) => {
                                                         className="group inline-flex items-start gap-2"
                                                     >
                                                         <div className="flex-1">
-                                                            <p className={`text-sm font-normal transition-opacity duration-200 group-hover:opacity-60 ${
-                                                                darkMode ? 'text-gray-400' : 'text-gray-600'
-                                                            }`}>
+                                                            <p className={`text-sm font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                                                }`}>
                                                                 {exp.name}
                                                             </p>
-                                                            <p className={`text-xs font-normal ${
-                                                                darkMode ? 'text-gray-600' : 'text-gray-500'
-                                                            }`}>
+                                                            <p className={`text-xs font-normal ${darkMode ? 'text-gray-600' : 'text-gray-500'
+                                                                }`}>
                                                                 {exp.role}
                                                             </p>
                                                         </div>
-                                                        <ArrowUpRight 
-                                                            size={12} 
-                                                            className={`flex-shrink-0 mt-0.5 transition-opacity duration-200 group-hover:opacity-60 ${
-                                                                darkMode ? 'text-gray-600' : 'text-gray-500'
-                                                            }`}
+                                                        <ArrowUpRight
+                                                            size={12}
+                                                            className={`flex-shrink-0 mt-0.5 transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-600' : 'text-gray-500'
+                                                                }`}
                                                         />
                                                     </a>
                                                 ) : (
                                                     <div>
-                                                        <p className={`text-sm font-normal ${
-                                                            darkMode ? 'text-gray-400' : 'text-gray-600'
-                                                        }`}>
+                                                        <p className={`text-sm font-normal ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                                            }`}>
                                                             {exp.name}
                                                         </p>
-                                                        <p className={`text-xs font-normal ${
-                                                            darkMode ? 'text-gray-600' : 'text-gray-500'
-                                                        }`}>
+                                                        <p className={`text-xs font-normal ${darkMode ? 'text-gray-600' : 'text-gray-500'
+                                                            }`}>
                                                             {exp.role}
                                                         </p>
                                                     </div>
