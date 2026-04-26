@@ -29,11 +29,13 @@ function AnimatedRoutes({ darkMode }) {
 }
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false) // Start in light mode
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode')
-    const isDark = savedMode === null ? false : savedMode === 'true'
+    const isDark = savedMode === null
+      ? window.matchMedia('(prefers-color-scheme: dark)').matches
+      : savedMode === 'true'
     setDarkMode(isDark)
     document.documentElement.classList.toggle('dark', isDark)
     document.documentElement.classList.toggle('light', !isDark)
