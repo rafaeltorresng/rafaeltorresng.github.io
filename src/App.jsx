@@ -11,6 +11,7 @@ import Books from './pages/Books'
 import Contact from './pages/Contact'
 import ScrollToTop from './components/ScrollToTop'
 import PageTransition from './components/PageTransition'
+import ThemeToggle from './components/ThemeToggle'
 
 function AnimatedRoutes({ darkMode }) {
   const location = useLocation()
@@ -70,19 +71,7 @@ function App() {
 
           {/* Main Content */}
           <main className="flex-1 lg:ml-64">
-            {/* Theme Toggle - Fixed top right */}
-            <motion.button
-              onClick={toggleDarkMode}
-              className={`fixed top-6 right-6 z-50 px-3 py-2 text-xs font-light transition-opacity duration-200 hover:opacity-60 ${
-                darkMode
-                  ? 'text-gray-500'
-                  : 'text-gray-400'
-              }`}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {darkMode ? 'Dark' : 'Light'}
-            </motion.button>
+            <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
             <AnimatedRoutes darkMode={darkMode} />
 
