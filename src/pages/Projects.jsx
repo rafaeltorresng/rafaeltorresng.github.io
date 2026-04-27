@@ -43,7 +43,7 @@ const Projects = ({ darkMode, accentColor, isMobileSection = false }) => {
                     className="group"
                 >
                     <div className="flex items-start justify-between gap-4 mb-2">
-                        <h3 className={`text-lg font-medium transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-white' : 'text-gray-900'
+                        <h3 className={`${isMobileSection ? 'text-base font-semibold' : 'text-lg font-medium'} transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-white' : 'text-gray-900'
                             }`}>
                             {project.title}
                         </h3>

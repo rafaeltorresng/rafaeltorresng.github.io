@@ -123,7 +123,7 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
                         {/* Content */}
                         <div className="flex-1 min-w-0">
                             <div className="flex items-baseline justify-between gap-4 mb-1">
-                                <h3 className={`text-lg font-medium ${darkMode ? 'text-white' : 'text-gray-900'
+                                <h3 className={`${isMobileSection ? 'text-base font-semibold' : 'text-lg font-medium'} ${darkMode ? 'text-white' : 'text-gray-900'
                                     }`}>
                                     {exp.title}
                                 </h3>

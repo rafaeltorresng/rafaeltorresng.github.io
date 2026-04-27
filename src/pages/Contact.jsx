@@ -44,7 +44,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Social Links */}
             <div>
-                <p className={`text-[10px] font-medium uppercase tracking-widest mb-3 ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                <p className={`text-[10px] font-medium uppercase tracking-widest mb-3 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Links
                 </p>
                 <div className={`flex flex-wrap gap-x-6 gap-y-4 ${isMobileSection ? 'text-base' : 'text-lg'} font-normal`}>
