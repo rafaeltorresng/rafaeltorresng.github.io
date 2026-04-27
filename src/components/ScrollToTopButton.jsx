@@ -56,7 +56,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
                 return
             }
 
-            if (Date.now() - startTime >= 8000) {
+            if (Date.now() - startTime >= 3000) {
                 isScrollingToTop.current = false
                 scrollMonitorRef.current = null
                 return
@@ -64,12 +64,12 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
 
             scrollMonitorRef.current = setTimeout(() => {
                 monitorScrollingFallback(startTime)
-            }, 200)
+            }, 300)
         }
 
         scrollMonitorRef.current = setTimeout(() => {
             monitorScrollingFallback(Date.now())
-        }, 200)
+        }, 300)
     }
 
     useEffect(() => {
