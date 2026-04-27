@@ -102,7 +102,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-xl font-normal mb-6 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                    <h1 className={`text-2xl font-normal mb-6 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
                         }`}>
                         Get In Touch<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>

@@ -123,7 +123,7 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
                         {/* Content */}
                         <div className="flex-1 min-w-0">
                             <div className="flex items-baseline justify-between gap-4 mb-1">
-                                <h3 className={`text-base font-normal ${darkMode ? 'text-white' : 'text-gray-900'
+                                <h3 className={`text-lg font-normal ${darkMode ? 'text-white' : 'text-gray-900'
                                     }`}>
                                     {exp.title}
                                 </h3>
@@ -149,7 +149,7 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
                                 {exp.period}
                             </p>
 
-                            <p className={`${isMobileSection ? 'text-sm' : 'text-lg'} font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                            <p className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
                                 {exp.description}
                             </p>
@@ -174,7 +174,7 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                    <h1 className={`text-2xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
                         }`}>
                         Experiences<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
