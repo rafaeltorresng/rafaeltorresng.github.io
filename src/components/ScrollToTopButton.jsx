@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 
+const SCROLL_THRESHOLD = 300
+const MAX_SCROLL_MONITOR_DURATION = 3000
+const SCROLL_MONITOR_INTERVAL = 300
+
 const ScrollToTopButton = ({ darkMode, accentColor }) => {
     const [isVisible, setIsVisible] = useState(false)
     const isScrollingToTop = useRef(false)
@@ -11,7 +15,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
         const toggleVisibility = () => {
             // If we are currently in the process of scrolling to top, don't toggle
             if (isScrollingToTop.current) {
-                if (window.scrollY <= 300) {
+                if (window.scrollY <= SCROLL_THRESHOLD) {
                     isScrollingToTop.current = false
                     if (scrollMonitorRef.current) {
                         clearTimeout(scrollMonitorRef.current)
@@ -21,7 +25,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
                 return
             }
 
-            if (window.scrollY > 300) {
+            if (window.scrollY > SCROLL_THRESHOLD) {
                 setIsVisible(true)
             } else {
                 setIsVisible(false)
@@ -50,13 +54,13 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
         })
 
         const monitorScrollingFallback = (startTime) => {
-            if (window.scrollY <= 300) {
+            if (window.scrollY <= SCROLL_THRESHOLD) {
                 isScrollingToTop.current = false
                 scrollMonitorRef.current = null
                 return
             }
 
-            if (Date.now() - startTime >= 3000) {
+            if (Date.now() - startTime >= MAX_SCROLL_MONITOR_DURATION) {
                 isScrollingToTop.current = false
                 scrollMonitorRef.current = null
                 return
@@ -64,12 +68,12 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
 
             scrollMonitorRef.current = setTimeout(() => {
                 monitorScrollingFallback(startTime)
-            }, 300)
+            }, SCROLL_MONITOR_INTERVAL)
         }
 
         scrollMonitorRef.current = setTimeout(() => {
             monitorScrollingFallback(Date.now())
-        }, 300)
+        }, SCROLL_MONITOR_INTERVAL)
     }
 
     useEffect(() => {
