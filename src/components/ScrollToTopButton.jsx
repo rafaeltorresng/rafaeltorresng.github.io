@@ -15,7 +15,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
         const toggleVisibility = () => {
             // If we are currently in the process of scrolling to top, don't toggle
             if (isScrollingToTop.current) {
-                if (window.scrollY <= SCROLL_THRESHOLD) {
+                if (window.scrollY < SCROLL_THRESHOLD) {
                     isScrollingToTop.current = false
                     if (scrollMonitorRef.current) {
                         clearTimeout(scrollMonitorRef.current)
@@ -54,7 +54,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
         })
 
         const monitorScrollingFallback = (startTime) => {
-            if (window.scrollY <= SCROLL_THRESHOLD) {
+            if (window.scrollY < SCROLL_THRESHOLD) {
                 isScrollingToTop.current = false
                 scrollMonitorRef.current = null
                 return
