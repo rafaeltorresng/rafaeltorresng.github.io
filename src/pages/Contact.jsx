@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Contact = ({ darkMode }) => {
+const Contact = ({ darkMode, accentColor }) => {
     return (
         <div className="min-h-[60vh] flex items-start px-6 sm:px-12 lg:px-24 xl:px-32 pt-24 pb-16 max-w-7xl mx-auto">
             <motion.div
@@ -14,7 +14,7 @@ const Contact = ({ darkMode }) => {
                     <h1 className={`text-xl font-normal mb-6 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
-                        Get In Touch
+                        Get In Touch<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
                     <p className={`text-lg font-normal leading-relaxed ${
                         darkMode ? 'text-gray-400' : 'text-gray-600'

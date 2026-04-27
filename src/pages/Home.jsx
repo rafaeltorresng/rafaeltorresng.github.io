@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 
-const Home = ({ darkMode }) => {
+const Home = ({ darkMode, accentColor }) => {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -27,7 +27,7 @@ const Home = ({ darkMode }) => {
                                 />
                                 <h1 className={`text-2xl sm:text-3xl font-normal tracking-tight transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
                                     }`}>
-                                    Rafael Torres
+                                    Rafael Torres<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                                 </h1>
                             </div>
                             <p className={`text-base font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'
@@ -68,8 +68,8 @@ const Home = ({ darkMode }) => {
                                 </span>
                                 <ArrowUpRight
                                     size={14}
-                                    className={`transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-500' : 'text-gray-400'
-                                        }`}
+                                    style={{ color: accentColor }}
+                                    className="transition-all duration-500 group-hover:opacity-60"
                                 />
                             </Link>
                         </div>
@@ -96,7 +96,7 @@ const Home = ({ darkMode }) => {
                                     </p>
                                     <p className={`text-sm font-normal ${darkMode ? 'text-gray-500' : 'text-gray-500'
                                         }`}>
-                                        UFPB · 2024 - 2027
+                                        UFPB <span className="transition-colors duration-500" style={{ color: accentColor }}>·</span> 2024 - 2027
                                     </p>
                                 </div>
                             </div>

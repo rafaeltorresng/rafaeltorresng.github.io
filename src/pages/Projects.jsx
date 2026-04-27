@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 
-const Projects = ({ darkMode }) => {
+const Projects = ({ darkMode, accentColor }) => {
     const projects = [
         {
             title: 'Blonded AI',
@@ -48,7 +48,7 @@ const Projects = ({ darkMode }) => {
                     <h1 className={`text-xl font-normal mb-2 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
-                        Projects
+                        Projects<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
                 </div>
 
@@ -73,7 +73,7 @@ const Projects = ({ darkMode }) => {
                                         darkMode ? 'text-gray-500' : 'text-gray-400'
                                     }`}
                                 >
-                                    <ExternalLink size={14} />
+                                    <ExternalLink size={14} style={{ color: accentColor }} />
                                 </a>
                             </div>
                             

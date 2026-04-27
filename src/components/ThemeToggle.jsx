@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
+const ThemeToggle = ({ darkMode, toggleDarkMode, accentColor }) => {
     const sunVariants = {
         initial: { rotate: 45 },
         animate: { rotate: darkMode ? 45 : 0 },
@@ -27,7 +27,9 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
     return (
         <motion.button
             onClick={toggleDarkMode}
-            className="fixed top-8 right-8 z-50 p-1.5 rounded-full flex items-center justify-center focus:outline-none"
+            className={`fixed top-8 right-8 z-50 p-1.5 rounded-full flex items-center justify-center focus:outline-none transition-colors duration-300 ${
+                darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+            }`}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Toggle Theme"
@@ -41,9 +43,7 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className={`w-5 h-5 transition-colors duration-300 ${
-                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                    }`}
+                    className="w-5 h-5 transition-colors duration-300"
                     variants={sunVariants}
                     animate="animate"
                 >
@@ -67,7 +67,7 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
                     />
 
                     {/* Sun Rays */}
-                    <motion.g variants={rayVariants} animate="animate">
+                    <motion.g variants={rayVariants} animate="animate" stroke="currentColor">
                         <line x1="12" y1="1" x2="12" y2="3" />
                         <line x1="12" y1="21" x2="12" y2="23" />
                         <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />

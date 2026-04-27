@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 
-const Experiences = ({ darkMode }) => {
+const Experiences = ({ darkMode, accentColor }) => {
     const experience = [
         {
             title: 'Founding Software Engineer',
@@ -88,16 +88,25 @@ const Experiences = ({ darkMode }) => {
                     <h1 className={`text-xl font-normal mb-2 transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}>
-                        Experience
+                        Experiences<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
                 </div>
 
                 {/* Experience List */}
-                <div className="space-y-12">
+                <div className="space-y-12 relative">
+                    {/* Vertical Timeline Line */}
+                    <div 
+                        className="absolute left-[27px] top-2 bottom-2 w-[1.5px] transition-colors duration-500"
+                        style={{ 
+                            backgroundColor: accentColor,
+                            opacity: darkMode ? 0.15 : 0.1
+                        }}
+                    />
+
                     {experience.map((exp, index) => (
                         <div
                             key={`${exp.company}-${index}`}
-                            className="group"
+                            className="group relative z-10"
                         >
                             <div className="flex items-start gap-4">
                                 {/* Logo */}
@@ -145,7 +154,7 @@ const Experiences = ({ darkMode }) => {
                                                     darkMode ? 'text-gray-500' : 'text-gray-400'
                                                 }`}
                                             >
-                                                <ExternalLink size={14} />
+                                                <ExternalLink size={14} style={{ color: accentColor }} />
                                             </a>
                                         )}
                                     </div>

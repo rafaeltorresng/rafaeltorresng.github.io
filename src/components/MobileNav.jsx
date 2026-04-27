@@ -2,22 +2,10 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Github, Linkedin, Instagram } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import { darkImages, lightImages } from '../constants/images'
 
-const MobileNav = ({ darkMode }) => {
+const MobileNav = ({ darkMode, darkIndex, lightIndex, accentColor }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [darkIndex, setDarkIndex] = useState(0)
-    const [lightIndex, setLightIndex] = useState(0)
-
-    const darkImages = ['1.JPG', '6.JPG', '3.JPG']
-    const lightImages = ['2.JPG', '4.JPG', '5.JPG', '7.JPG']
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setDarkIndex((prev) => (prev + 1) % darkImages.length)
-            setLightIndex((prev) => (prev + 1) % lightImages.length)
-        }, 30000)
-        return () => clearInterval(interval)
-    }, [])
 
     // Lock body scroll when menu is open
     useEffect(() => {
@@ -33,7 +21,7 @@ const MobileNav = ({ darkMode }) => {
 
     const navLinks = [
         { name: 'Intro', path: '/' },
-        { name: 'Experience', path: '/experiences' },
+        { name: 'Experiences', path: '/experiences' },
         { name: 'Projects', path: '/projects' },
         { name: 'Refs', path: '/books' },
         { name: 'Contact', path: '/contact' },
@@ -82,23 +70,20 @@ const MobileNav = ({ darkMode }) => {
                     <motion.span
                         animate={isOpen ? { rotate: 45, y: 7.5 } : { rotate: 0, y: 0 }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        className={`w-full h-[1.2px] block rounded-full transition-colors duration-300 origin-center ${
-                            darkMode ? 'bg-white' : 'bg-gray-900'
-                        }`}
+                        className="w-full h-[1.2px] block rounded-full transition-colors duration-500 origin-center"
+                        style={{ backgroundColor: isOpen ? accentColor : (darkMode ? 'white' : '#111827') }}
                     />
                     <motion.span
                         animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
                         transition={{ duration: 0.2 }}
-                        className={`w-full h-[1.2px] block rounded-full transition-colors duration-300 ${
-                            darkMode ? 'bg-white' : 'bg-gray-900'
-                        }`}
+                        className="w-full h-[1.2px] block rounded-full transition-colors duration-500"
+                        style={{ backgroundColor: isOpen ? accentColor : (darkMode ? 'white' : '#111827') }}
                     />
                     <motion.span
                         animate={isOpen ? { rotate: -45, y: -7.5 } : { rotate: 0, y: 0 }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        className={`w-full h-[1.2px] block rounded-full transition-colors duration-300 origin-center ${
-                            darkMode ? 'bg-white' : 'bg-gray-900'
-                        }`}
+                        className="w-full h-[1.2px] block rounded-full transition-colors duration-500 origin-center"
+                        style={{ backgroundColor: isOpen ? accentColor : (darkMode ? 'white' : '#111827') }}
                     />
                 </div>
             </button>
@@ -183,15 +168,16 @@ const MobileNav = ({ darkMode }) => {
                                                 to={link.path}
                                                 onClick={() => setIsOpen(false)}
                                                 className={({ isActive }) =>
-                                                    `block py-1 text-base font-medium transition-colors duration-200 ${
+                                                    `block py-1 text-base font-medium transition-colors duration-500 ${
                                                         isActive
-                                                            ? darkMode
-                                                                ? 'text-white'
-                                                                : 'text-gray-900'
+                                                            ? ''
                                                             : darkMode
                                                             ? 'text-gray-300 hover:text-white'
                                                             : 'text-gray-600 hover:text-gray-900'
                                                     }`
+                                                }
+                                                style={({ isActive }) => 
+                                                    isActive ? { color: accentColor } : {}
                                                 }
                                             >
                                                 {link.name}

@@ -2,25 +2,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Github, Linkedin, Instagram } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { darkImages, lightImages } from '../constants/images'
 
-const Sidebar = ({ darkMode }) => {
-    const [darkIndex, setDarkIndex] = useState(0)
-    const [lightIndex, setLightIndex] = useState(0)
-
-    const darkImages = ['1.JPG', '6.JPG', '3.JPG']
-    const lightImages = ['2.JPG', '4.JPG', '5.JPG', '7.JPG']
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setDarkIndex((prev) => (prev + 1) % darkImages.length)
-            setLightIndex((prev) => (prev + 1) % lightImages.length)
-        }, 30000)
-        return () => clearInterval(interval)
-    }, [])
+const Sidebar = ({ darkMode, darkIndex, lightIndex, accentColor }) => {
 
     const navLinks = [
         { name: 'Intro', path: '/' },
-        { name: 'Experience', path: '/experiences' },
+        { name: 'Experiences', path: '/experiences' },
         { name: 'Projects', path: '/projects' },
         { name: 'Refs', path: '/books' },
         { name: 'Contact', path: '/contact' },
@@ -87,14 +75,15 @@ const Sidebar = ({ darkMode }) => {
                             key={link.path}
                             to={link.path}
                             className={({ isActive }) =>
-                                `block py-1 text-base font-medium transition-colors duration-200 ${isActive
-                                    ? darkMode
-                                        ? 'text-white'
-                                        : 'text-gray-900'
+                                `block py-1 text-base font-medium transition-colors duration-500 ${isActive
+                                    ? ''
                                     : darkMode
                                         ? 'text-gray-300 hover:text-white'
                                         : 'text-gray-600 hover:text-gray-900'
                                 }`
+                            }
+                            style={({ isActive }) => 
+                                isActive ? { color: accentColor } : {}
                             }
                         >
                             {link.name}

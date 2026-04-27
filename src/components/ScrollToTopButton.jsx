@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 
-const ScrollToTopButton = ({ darkMode }) => {
+const ScrollToTopButton = ({ darkMode, accentColor }) => {
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
@@ -48,11 +48,24 @@ const ScrollToTopButton = ({ darkMode }) => {
                     }}
                     whileTap={{ scale: 0.9 }}
                     onClick={scrollToTop}
-                    className={`fixed bottom-8 right-8 z-40 p-3 rounded-full shadow-lg backdrop-blur-sm transition-colors duration-300 ${
+                    className={`fixed bottom-8 right-8 z-40 p-3 rounded-full shadow-lg backdrop-blur-sm transition-all duration-500 ${
                         darkMode
-                            ? 'bg-gray-800/90 hover:bg-gray-700 text-white border border-gray-700'
-                            : 'bg-white/95 hover:bg-gray-100 text-gray-900 border border-gray-200'
+                            ? 'bg-gray-800/80 text-white border border-gray-700/50'
+                            : 'bg-white/80 text-gray-900 border border-gray-200/50'
                     }`}
+                    style={{ 
+                        borderColor: accentColor + '40'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = accentColor
+                        e.currentTarget.style.borderColor = accentColor
+                        e.currentTarget.style.color = 'white'
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = ''
+                        e.currentTarget.style.borderColor = ''
+                        e.currentTarget.style.color = ''
+                    }}
                     aria-label="Scroll to top"
                 >
                     <ArrowUp size={20} />
