@@ -135,7 +135,7 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
                                         className={`flex-shrink-0 transition-opacity duration-200 hover:opacity-60 ${darkMode ? 'text-gray-500' : 'text-gray-400'
                                             }`}
                                     >
-                                        <ExternalLink size={14} style={{ color: accentColor }} />
+                                        <ExternalLink size={isMobileSection ? 18 : 14} style={{ color: accentColor }} />
                                     </a>
                                 )}
                             </div>

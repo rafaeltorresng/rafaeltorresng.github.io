@@ -76,7 +76,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
         <>
             {/* Books Section */}
             <div className={isMobileSection ? "mb-12" : "mb-20"}>
-                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                <h2 className="text-[10px] font-medium uppercase tracking-widest mb-6 transition-colors duration-500" style={{ color: darkMode ? '#6b7280' : '#6b7280' }}>
                     Books
                 </h2>
                 <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
@@ -119,7 +119,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Articles Section */}
             <div>
-                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                <h2 className="text-[10px] font-medium uppercase tracking-widest mb-6 transition-colors duration-500" style={{ color: darkMode ? '#6b7280' : '#6b7280' }}>
                     Stuff
                 </h2>
                 <div className="space-y-3">
@@ -136,7 +136,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
                                 {article.title}
                             </span>
                             <ExternalLink
-                                size={14}
+                                size={isMobileSection ? 18 : 14}
                                 style={{ color: accentColor }}
                                 className="flex-shrink-0 mt-1 transition-opacity duration-200 group-hover:opacity-60"
                             />
