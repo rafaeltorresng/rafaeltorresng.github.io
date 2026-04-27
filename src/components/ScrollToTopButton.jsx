@@ -2,8 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 
-const SCROLL_THRESHOLD = 300
-const MAX_SCROLL_MONITOR_DURATION = 3000
+const BUTTON_VISIBILITY_THRESHOLD = 300
+const TOP_RELEASE_THRESHOLD = 10
+const MAX_SCROLL_MONITOR_DURATION = 5000
 const SCROLL_MONITOR_INTERVAL = 300
 
 const ScrollToTopButton = ({ darkMode, accentColor }) => {
@@ -15,7 +16,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
         const toggleVisibility = () => {
             // If we are currently in the process of scrolling to top, don't toggle
             if (isScrollingToTop.current) {
-                if (window.scrollY < SCROLL_THRESHOLD) {
+                if (window.scrollY < TOP_RELEASE_THRESHOLD) {
                     isScrollingToTop.current = false
                     if (scrollMonitorRef.current) {
                         clearTimeout(scrollMonitorRef.current)
@@ -25,7 +26,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
                 return
             }
 
-            if (window.scrollY > SCROLL_THRESHOLD) {
+            if (window.scrollY > BUTTON_VISIBILITY_THRESHOLD) {
                 setIsVisible(true)
             } else {
                 setIsVisible(false)
@@ -54,7 +55,7 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
         })
 
         const monitorScrollingFallback = (startTime) => {
-            if (window.scrollY < SCROLL_THRESHOLD) {
+            if (window.scrollY < TOP_RELEASE_THRESHOLD) {
                 isScrollingToTop.current = false
                 scrollMonitorRef.current = null
                 return
