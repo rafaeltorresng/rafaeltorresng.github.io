@@ -18,7 +18,7 @@ const CollapsibleSection = ({ title, children, darkMode, accentColor }) => {
                 className="w-full py-6 flex items-center justify-between group focus:outline-none focus-visible:outline-none relative"
                 style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent', tapHighlightColor: 'transparent' }}
             >
-                <h2 className={`text-lg font-normal ${
+                <h2 className={`text-lg font-medium ${
                     darkMode ? 'text-white' : 'text-gray-900'
                 }`}>
                     {title}<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>

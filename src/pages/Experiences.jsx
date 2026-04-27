@@ -79,7 +79,7 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
         <div className={`${isMobileSection ? 'space-y-8' : 'space-y-12'} relative`}>
             {/* Vertical Timeline Line */}
             <div
-                className={`absolute ${isMobileSection ? 'left-[23px]' : 'left-[27px]'} top-2 bottom-2 w-[1.5px] transition-colors duration-500`}
+                className={`absolute ${isMobileSection ? 'left-[23.25px]' : 'left-[27.25px]'} top-2 bottom-2 w-[1.5px] transition-colors duration-500`}
                 style={{
                     backgroundColor: accentColor,
                     opacity: darkMode ? 0.15 : 0.1
@@ -140,16 +140,16 @@ const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
                                 )}
                             </div>
 
-                            <p className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal mb-1 ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                            <p className={`text-base font-normal mb-1 ${darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
                                 {exp.company}
                             </p>
 
-                            <p className={`text-xs font-normal mb-3 text-gray-500`}>
+                            <p className={`text-xs font-normal mb-3 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                                 {exp.period}
                             </p>
 
-                            <p className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                            <p className={`text-base font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
                                 {exp.description}
                             </p>

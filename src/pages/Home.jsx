@@ -51,7 +51,7 @@ const Home = ({ darkMode, accentColor, isMobileSection = false }) => {
             {/* Current Work */}
             <div>
                 <div className="mb-2">
-                    <p className="text-xs font-normal text-gray-500">
+                    <p className={`text-xs font-normal ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                         Currently
                     </p>
                 </div>
@@ -81,7 +81,7 @@ const Home = ({ darkMode, accentColor, isMobileSection = false }) => {
             {/* Education */}
             <div>
                 <div className="flex items-center justify-between mb-2">
-                    <p className={`text-xs font-normal text-gray-500`}>
+                    <p className={`text-xs font-normal ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                         Education
                     </p>
                 </div>
@@ -97,7 +97,7 @@ const Home = ({ darkMode, accentColor, isMobileSection = false }) => {
                             }`}>
                             Bachelor of Computer Science
                         </p>
-                        <p className={`text-xs font-normal text-gray-500`}>
+                        <p className={`text-xs font-normal ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                             UFPB <span className="transition-colors duration-500" style={{ color: accentColor }}>·</span> 2024 - 2027
                         </p>
                     </div>

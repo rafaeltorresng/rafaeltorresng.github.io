@@ -5,7 +5,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
         <div className={isMobileSection ? "space-y-6" : "space-y-8"}>
             {/* Email */}
             <div>
-                <p className={`text-xs font-normal mb-2 text-gray-500`}>
+                <p className={`text-xs font-normal mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                     Email
                 </p>
                 <a
@@ -19,7 +19,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Phone */}
             <div>
-                <p className={`text-xs font-normal mb-2 text-gray-500`}>
+                <p className={`text-xs font-normal mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                     Phone
                 </p>
                 <a
@@ -33,7 +33,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Location */}
             <div>
-                <p className={`text-xs font-normal mb-2 text-gray-500`}>
+                <p className={`text-xs font-normal mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                     Location
                 </p>
                 <p className={`${isMobileSection ? 'text-base' : 'text-lg'} font-normal ${darkMode ? 'text-gray-400' : 'text-gray-600'
@@ -44,7 +44,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Social Links */}
             <div>
-                <p className={`text-xs font-normal mb-3 text-gray-500`}>
+                <p className={`text-xs font-normal mb-3 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                     Links
                 </p>
                 <div className={`flex flex-wrap gap-x-6 gap-y-4 ${isMobileSection ? 'text-base' : 'text-lg'} font-normal`}>

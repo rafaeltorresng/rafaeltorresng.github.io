@@ -58,7 +58,7 @@ const Projects = ({ darkMode, accentColor, isMobileSection = false }) => {
                         </a>
                     </div>
 
-                    <p className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                    <p className={`text-base font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
                         }`}>
                         {project.description}
                     </p>

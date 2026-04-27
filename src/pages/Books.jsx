@@ -76,10 +76,10 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
         <>
             {/* Books Section */}
             <div className={isMobileSection ? "mb-12" : "mb-20"}>
-                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 text-gray-500`}>
+                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                     Books
                 </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
                     {books.map((book, index) => (
                         <div
                             key={index}
@@ -119,7 +119,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Articles Section */}
             <div>
-                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 text-gray-500`}>
+                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
                     Stuff
                 </h2>
                 <div className="space-y-3">
@@ -131,7 +131,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
                             rel="noopener noreferrer"
                             className="group flex items-start gap-2"
                         >
-                            <span className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                            <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-400' : 'text-gray-600'
                                 }`}>
                                 {article.title}
                             </span>
