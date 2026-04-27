@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 
-const Projects = ({ darkMode, accentColor }) => {
+const Projects = ({ darkMode, accentColor, isMobileSection = false }) => {
     const projects = [
         {
             title: 'Blonded AI',
@@ -35,6 +35,42 @@ const Projects = ({ darkMode, accentColor }) => {
         }
     ]
 
+    const content = (
+        <div className={isMobileSection ? "space-y-8" : "space-y-12"}>
+            {projects.map((project) => (
+                <div
+                    key={project.title}
+                    className="group"
+                >
+                    <div className="flex items-start justify-between gap-4 mb-2">
+                        <h3 className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-white' : 'text-gray-900'
+                            }`}>
+                            {project.title}
+                        </h3>
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex-shrink-0 transition-opacity duration-200 hover:opacity-60 ${darkMode ? 'text-gray-500' : 'text-gray-400'
+                                }`}
+                        >
+                            <ExternalLink size={14} style={{ color: accentColor }} />
+                        </a>
+                    </div>
+
+                    <p className={`${isMobileSection ? 'text-sm' : 'text-lg'} font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                        }`}>
+                        {project.description}
+                    </p>
+                </div>
+            ))}
+        </div>
+    );
+
+    if (isMobileSection) {
+        return content;
+    }
+
     return (
         <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-32 py-24 max-w-7xl mx-auto">
             <motion.div
@@ -45,49 +81,18 @@ const Projects = ({ darkMode, accentColor }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-xl font-normal mb-2 transition-colors ${
-                        darkMode ? 'text-white' : 'text-gray-900'
-                    }`}>
+                    <h1 className={`text-xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
                         Projects<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
                 </div>
 
                 {/* Projects List */}
-                <div className="space-y-12">
-                    {projects.map((project) => (
-                        <div
-                            key={project.title}
-                            className="group"
-                        >
-                            <div className="flex items-start justify-between gap-4 mb-2">
-                                <h3 className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
-                                    darkMode ? 'text-white' : 'text-gray-900'
-                                }`}>
-                                    {project.title}
-                                </h3>
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`flex-shrink-0 transition-opacity duration-200 hover:opacity-60 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-400'
-                                    }`}
-                                >
-                                    <ExternalLink size={14} style={{ color: accentColor }} />
-                                </a>
-                            </div>
-                            
-                            <p className={`text-lg font-normal leading-relaxed ${
-                                darkMode ? 'text-gray-400' : 'text-gray-600'
-                            }`}>
-                                {project.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+                {content}
             </motion.div>
         </div>
     )
 }
+
 
 export default Projects

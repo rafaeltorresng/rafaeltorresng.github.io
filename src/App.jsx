@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { darkImages, lightImages, darkAccents, lightAccents } from './constants/images'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Sidebar from './components/Sidebar'
-import MobileNav from './components/MobileNav'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import Home from './pages/Home'
 import Experiences from './pages/Experiences'
@@ -13,6 +12,8 @@ import Contact from './pages/Contact'
 import ScrollToTop from './components/ScrollToTop'
 import PageTransition from './components/PageTransition'
 import ThemeToggle from './components/ThemeToggle'
+import MobileLayout from './components/MobileLayout'
+import { useIsMobile } from './hooks/useIsMobile'
 
 const getInitialDarkMode = () => {
   const savedMode = localStorage.getItem('darkMode')
@@ -20,8 +21,19 @@ const getInitialDarkMode = () => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
-function AnimatedRoutes({ darkMode, accentColor }) {
+function AnimatedRoutes({ darkMode, accentColor, isMobile }) {
   const location = useLocation()
+
+  if (isMobile) {
+    return (
+      <AnimatePresence mode="wait">
+        <Routes location={location} key="mobile-routes">
+          <Route path="/" element={<PageTransition><MobileLayout darkMode={darkMode} accentColor={accentColor} /></PageTransition>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AnimatePresence>
+    )
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -36,12 +48,11 @@ function AnimatedRoutes({ darkMode, accentColor }) {
   )
 }
 
-
-
 function App() {
   const [darkMode, setDarkMode] = useState(getInitialDarkMode)
   const [darkIndex, setDarkIndex] = useState(0)
   const [lightIndex, setLightIndex] = useState(0)
+  const isMobile = useIsMobile()
 
   const accentColor = darkMode ? darkAccents[darkIndex] : lightAccents[lightIndex]
 
@@ -74,32 +85,26 @@ function App() {
         }`}>
         <div className="flex">
           {/* Desktop Sidebar */}
-          <div className="hidden lg:block">
-            <Sidebar
-              darkMode={darkMode}
-              darkIndex={darkIndex}
-              lightIndex={lightIndex}
-              accentColor={accentColor}
-            />
-          </div>
-
-          {/* Mobile Navigation */}
-          <MobileNav
-            darkMode={darkMode}
-            darkIndex={darkIndex}
-            lightIndex={lightIndex}
-            accentColor={accentColor}
-          />
+          {!isMobile && (
+            <div className="hidden lg:block">
+              <Sidebar
+                darkMode={darkMode}
+                darkIndex={darkIndex}
+                lightIndex={lightIndex}
+                accentColor={accentColor}
+              />
+            </div>
+          )}
 
           {/* Main Content */}
-          <main className="flex-1 lg:ml-64">
+          <main className={`flex-1 ${!isMobile ? 'lg:ml-64' : ''}`}>
             <ThemeToggle
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
               accentColor={accentColor}
             />
 
-            <AnimatedRoutes darkMode={darkMode} accentColor={accentColor} />
+            <AnimatedRoutes darkMode={darkMode} accentColor={accentColor} isMobile={isMobile} />
 
             {/* Scroll to Top Button */}
             <ScrollToTopButton darkMode={darkMode} accentColor={accentColor} />
@@ -109,5 +114,6 @@ function App() {
     </Router>
   )
 }
+
 
 export default App

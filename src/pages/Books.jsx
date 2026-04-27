@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 
-const Books = ({ darkMode, accentColor }) => {
+const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
     const books = [
         {
             title: 'Grokking Algorithms',
@@ -72,6 +72,85 @@ const Books = ({ darkMode, accentColor }) => {
         { title: 'AI and the Future of Work (YouTube Talk)', url: 'https://www.youtube.com/watch?v=LCEmiRjPEtQ' }
     ]
 
+    const content = (
+        <>
+            {/* Books Section */}
+            <div className={isMobileSection ? "mb-12" : "mb-20"}>
+                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 text-gray-500`}>
+                    Books
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    {books.map((book, index) => (
+                        <div
+                            key={index}
+                            className="group relative"
+                        >
+                            {/* Book Cover */}
+                            <div className="relative aspect-[2/3] rounded overflow-hidden bg-gray-100">
+                                <img
+                                    src={`${import.meta.env.BASE_URL}${book.cover}`}
+                                    alt={book.title}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+
+                                {/* Hover Overlay */}
+                                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 ${darkMode ? 'bg-black/80' : 'bg-white/90'
+                                    }`}>
+                                    <h3 className={`text-sm font-normal mb-1 line-clamp-2 ${darkMode ? 'text-white' : 'text-gray-900'
+                                        }`}>
+                                        {book.title}
+                                    </h3>
+                                    <p className={`text-sm font-normal ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                        }`}>
+                                        {book.author}
+                                    </p>
+                                    {book.reading && (
+                                        <p className={`text-sm font-normal mt-2 ${darkMode ? 'text-gray-500' : 'text-gray-400'
+                                            }`}>
+                                            Reading
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Articles Section */}
+            <div>
+                <h2 className={`${isMobileSection ? 'text-xs' : 'text-base'} font-normal mb-6 text-gray-500`}>
+                    Stuff
+                </h2>
+                <div className="space-y-3">
+                    {articles.map((article, index) => (
+                        <a
+                            key={index}
+                            href={article.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-start gap-2"
+                        >
+                            <span className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
+                                {article.title}
+                            </span>
+                            <ExternalLink
+                                size={14}
+                                style={{ color: accentColor }}
+                                className="flex-shrink-0 mt-1 transition-opacity duration-200 group-hover:opacity-60"
+                            />
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+
+    if (isMobileSection) {
+        return content;
+    }
+
     return (
         <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-32 py-24 max-w-7xl mx-auto">
             <motion.div
@@ -82,95 +161,17 @@ const Books = ({ darkMode, accentColor }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-xl font-normal mb-2 transition-colors ${
-                        darkMode ? 'text-white' : 'text-gray-900'
-                    }`}>
+                    <h1 className={`text-xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
                         Refs<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
                 </div>
 
-                {/* Books Section */}
-                <div className="mb-20">
-                    <h2 className={`text-base font-normal mb-6 ${
-                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                    }`}>
-                        Books
-                    </h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                        {books.map((book, index) => (
-                            <div
-                                key={index}
-                                className="group relative"
-                            >
-                                {/* Book Cover */}
-                                <div className="relative aspect-[2/3] rounded overflow-hidden bg-gray-100">
-                                    <img
-                                        src={`${import.meta.env.BASE_URL}${book.cover}`}
-                                        alt={book.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                    />
-
-                                    {/* Hover Overlay */}
-                                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 ${
-                                        darkMode ? 'bg-black/80' : 'bg-white/90'
-                                    }`}>
-                                        <h3 className={`text-sm font-normal mb-1 line-clamp-2 ${
-                                            darkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>
-                                            {book.title}
-                                        </h3>
-                                        <p className={`text-sm font-normal ${
-                                            darkMode ? 'text-gray-400' : 'text-gray-600'
-                                        }`}>
-                                            {book.author}
-                                        </p>
-                                        {book.reading && (
-                                            <p className={`text-sm font-normal mt-2 ${
-                                                darkMode ? 'text-gray-500' : 'text-gray-400'
-                                            }`}>
-                                                Reading
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Articles Section */}
-                <div>
-                    <h2 className={`text-base font-normal mb-6 ${
-                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                    }`}>
-                        Stuff
-                    </h2>
-                    <div className="space-y-3">
-                        {articles.map((article, index) => (
-                            <a
-                                key={index}
-                                href={article.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex items-start gap-2"
-                            >
-                                <span className={`text-base font-normal transition-opacity duration-200 group-hover:opacity-60 ${
-                                    darkMode ? 'text-gray-400' : 'text-gray-600'
-                                }`}>
-                                    {article.title}
-                                </span>
-                                <ExternalLink 
-                                    size={14} 
-                                    style={{ color: accentColor }}
-                                    className="flex-shrink-0 mt-1 transition-opacity duration-200 group-hover:opacity-60"
-                                />
-                            </a>
-                        ))}
-                    </div>
-                </div>
+                {content}
             </motion.div>
         </div>
     )
 }
+
 
 export default Books

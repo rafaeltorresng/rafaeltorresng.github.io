@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 
-const Experiences = ({ darkMode, accentColor }) => {
+const Experiences = ({ darkMode, accentColor, isMobileSection = false }) => {
     const experience = [
         {
             title: 'Founding Software Engineer',
@@ -75,6 +75,95 @@ const Experiences = ({ darkMode, accentColor }) => {
         }
     ]
 
+    const content = (
+        <div className={`${isMobileSection ? 'space-y-8' : 'space-y-12'} relative`}>
+            {/* Vertical Timeline Line */}
+            <div
+                className={`absolute ${isMobileSection ? 'left-[23px]' : 'left-[27px]'} top-2 bottom-2 w-[1.5px] transition-colors duration-500`}
+                style={{
+                    backgroundColor: accentColor,
+                    opacity: darkMode ? 0.15 : 0.1
+                }}
+            />
+
+            {experience.map((exp, index) => (
+                <div
+                    key={`${exp.company}-${index}`}
+                    className="group relative z-10"
+                >
+                    <div className="flex items-start gap-4">
+                        {/* Logo */}
+                        <div className={`${isMobileSection ? 'w-12 h-12' : 'w-14 h-14'} rounded flex-shrink-0 flex items-center justify-center bg-white border border-gray-100 overflow-hidden`}>
+                            {exp.logo && (
+                                exp.link ? (
+                                    <a
+                                        href={exp.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full h-full flex items-center justify-center"
+                                    >
+                                        <img
+                                            src={`${import.meta.env.BASE_URL}${exp.logo}`}
+                                            alt={`${exp.company} Logo`}
+                                            className="w-full h-full object-contain p-1"
+                                            onError={(e) => e.target.style.display = 'none'}
+                                        />
+                                    </a>
+                                ) : (
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}${exp.logo}`}
+                                        alt={`${exp.company} Logo`}
+                                        className="w-full h-full object-contain p-1"
+                                        onError={(e) => e.target.style.display = 'none'}
+                                    />
+                                )
+                            )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-baseline justify-between gap-4 mb-1">
+                                <h3 className={`text-base font-normal ${darkMode ? 'text-white' : 'text-gray-900'
+                                    }`}>
+                                    {exp.title}
+                                </h3>
+                                {exp.link && exp.asset && (
+                                    <a
+                                        href={exp.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`flex-shrink-0 transition-opacity duration-200 hover:opacity-60 ${darkMode ? 'text-gray-500' : 'text-gray-400'
+                                            }`}
+                                    >
+                                        <ExternalLink size={14} style={{ color: accentColor }} />
+                                    </a>
+                                )}
+                            </div>
+
+                            <p className={`${isMobileSection ? 'text-sm' : 'text-base'} font-normal mb-1 ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
+                                {exp.company}
+                            </p>
+
+                            <p className={`text-xs font-normal mb-3 text-gray-500`}>
+                                {exp.period}
+                            </p>
+
+                            <p className={`${isMobileSection ? 'text-sm' : 'text-lg'} font-normal leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
+                                {exp.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+
+    if (isMobileSection) {
+        return content;
+    }
+
     return (
         <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-32 py-24 max-w-7xl mx-auto">
             <motion.div
@@ -85,105 +174,18 @@ const Experiences = ({ darkMode, accentColor }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-xl font-normal mb-2 transition-colors ${
-                        darkMode ? 'text-white' : 'text-gray-900'
-                    }`}>
+                    <h1 className={`text-xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
                         Experiences<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
                 </div>
 
                 {/* Experience List */}
-                <div className="space-y-12 relative">
-                    {/* Vertical Timeline Line */}
-                    <div 
-                        className="absolute left-[27px] top-2 bottom-2 w-[1.5px] transition-colors duration-500"
-                        style={{ 
-                            backgroundColor: accentColor,
-                            opacity: darkMode ? 0.15 : 0.1
-                        }}
-                    />
-
-                    {experience.map((exp, index) => (
-                        <div
-                            key={`${exp.company}-${index}`}
-                            className="group relative z-10"
-                        >
-                            <div className="flex items-start gap-4">
-                                {/* Logo */}
-                                <div className="w-14 h-14 rounded flex-shrink-0 flex items-center justify-center bg-white border border-gray-100 overflow-hidden">
-                                    {exp.logo && (
-                                        exp.link && (exp.company === 'SeverinoBiu' || exp.company === 'ARIA' || exp.company === 'TAIL - Technology and Artificial Intelligence League' || exp.company === 'TRIL Lab' || exp.company === 'Trilha') ? (
-                                            <a
-                                                href={exp.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-full h-full flex items-center justify-center"
-                                            >
-                                                <img
-                                                    src={`${import.meta.env.BASE_URL}${exp.logo}`}
-                                                    alt={`${exp.company} Logo`}
-                                                    className="w-full h-full object-contain p-1"
-                                                    onError={(e) => e.target.style.display = 'none'}
-                                                />
-                                            </a>
-                                        ) : (
-                                            <img
-                                                src={`${import.meta.env.BASE_URL}${exp.logo}`}
-                                                alt={`${exp.company} Logo`}
-                                                className="w-full h-full object-contain p-1"
-                                                onError={(e) => e.target.style.display = 'none'}
-                                            />
-                                        )
-                                    )}
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-baseline justify-between gap-4 mb-1">
-                                        <h3 className={`text-base font-normal ${
-                                            darkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>
-                                            {exp.title}
-                                        </h3>
-                                        {exp.link && exp.asset && (
-                                            <a
-                                                href={exp.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={`flex-shrink-0 transition-opacity duration-200 hover:opacity-60 ${
-                                                    darkMode ? 'text-gray-500' : 'text-gray-400'
-                                                }`}
-                                            >
-                                                <ExternalLink size={14} style={{ color: accentColor }} />
-                                            </a>
-                                        )}
-                                    </div>
-                                    
-                                    <p className={`text-base font-normal mb-1 ${
-                                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                                    }`}>
-                                        {exp.company}
-                                    </p>
-
-                                    <p className={`text-base font-normal mb-3 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                                    }`}>
-                                        {exp.period}
-                                    </p>
-
-                                    <p className={`text-lg font-normal leading-relaxed ${
-                                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                                    }`}>
-                                        {exp.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                {content}
             </motion.div>
         </div>
     )
 }
+
 
 export default Experiences
