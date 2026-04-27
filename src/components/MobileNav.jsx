@@ -5,6 +5,19 @@ import { NavLink } from 'react-router-dom'
 
 const MobileNav = ({ darkMode }) => {
     const [isOpen, setIsOpen] = useState(false)
+    const [darkIndex, setDarkIndex] = useState(0)
+    const [lightIndex, setLightIndex] = useState(0)
+
+    const darkImages = ['1.JPG', '6.JPG', '3.JPG']
+    const lightImages = ['2.JPG', '4.JPG', '5.JPG', '7.JPG']
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDarkIndex((prev) => (prev + 1) % darkImages.length)
+            setLightIndex((prev) => (prev + 1) % lightImages.length)
+        }, 30000)
+        return () => clearInterval(interval)
+    }, [])
 
     // Lock body scroll when menu is open
     useEffect(() => {
@@ -113,26 +126,40 @@ const MobileNav = ({ darkMode }) => {
                                 darkMode ? 'bg-[#0a0a0a]' : 'bg-[#f5f5f5]'
                             }`}
                         >
-                            {/* Background Images with better handling */}
+                            {/* Dynamic Background Images */}
                             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                                <div 
-                                    className="absolute inset-0 transition-opacity duration-700"
-                                    style={{
-                                        backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3122.JPG)`,
-                                        backgroundPosition: 'top center',
-                                        backgroundSize: 'cover',
-                                        opacity: darkMode ? 0.5 : 0,
-                                    }}
-                                />
-                                <div 
-                                    className="absolute inset-0 transition-opacity duration-700"
-                                    style={{
-                                        backgroundImage: `url(${import.meta.env.BASE_URL}IMG_3124%202.JPG)`,
-                                        backgroundPosition: 'top center',
-                                        backgroundSize: 'cover',
-                                        opacity: darkMode ? 0 : 0.5,
-                                    }}
-                                />
+                                <AnimatePresence mode="popLayout">
+                                    <motion.div
+                                        key={`mobile-dark-${darkIndex}`}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: darkMode ? 0.5 : 0 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                                        className="absolute inset-0"
+                                        style={{
+                                            backgroundImage: `url(${import.meta.env.BASE_URL}${darkImages[darkIndex]})`,
+                                            backgroundPosition: 'top center',
+                                            backgroundSize: 'cover',
+                                        }}
+                                    />
+                                </AnimatePresence>
+
+                                <AnimatePresence mode="popLayout">
+                                    <motion.div
+                                        key={`mobile-light-${lightIndex}`}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: darkMode ? 0 : 0.5 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                                        className="absolute inset-0"
+                                        style={{
+                                            backgroundImage: `url(${import.meta.env.BASE_URL}${lightImages[lightIndex]})`,
+                                            backgroundPosition: 'top center',
+                                            backgroundSize: 'cover',
+                                        }}
+                                    />
+                                </AnimatePresence>
+                                
                                 <div 
                                     className="absolute inset-0 transition-colors duration-700"
                                     style={{
