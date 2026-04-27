@@ -1,21 +1,29 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 
 const ScrollToTopButton = ({ darkMode, accentColor }) => {
     const [isVisible, setIsVisible] = useState(false)
+    const isScrollingToTop = useRef(false)
 
     useEffect(() => {
         const toggleVisibility = () => {
-            // Show button when page is scrolled down 300px
-            if (window.pageYOffset > 300) {
+            // If we are currently in the process of scrolling to top, don't toggle
+            if (isScrollingToTop.current) {
+                if (window.scrollY < 10) {
+                    isScrollingToTop.current = false
+                }
+                return
+            }
+
+            if (window.scrollY > 300) {
                 setIsVisible(true)
             } else {
                 setIsVisible(false)
             }
         }
 
-        window.addEventListener('scroll', toggleVisibility)
+        window.addEventListener('scroll', toggleVisibility, { passive: true })
 
         return () => {
             window.removeEventListener('scroll', toggleVisibility)
@@ -23,10 +31,18 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
     }, [])
 
     const scrollToTop = () => {
+        isScrollingToTop.current = true
+        setIsVisible(false)
+        
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
+
+        // Backup plan: if scroll takes too long or doesn't trigger listener
+        setTimeout(() => {
+            isScrollingToTop.current = false
+        }, 1000)
     }
 
     return (
@@ -56,18 +72,19 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
                     style={{ 
                         borderColor: accentColor + '40'
                     }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = accentColor
-                        e.currentTarget.style.borderColor = accentColor
-                        e.currentTarget.style.color = 'white'
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = ''
-                        e.currentTarget.style.borderColor = ''
-                        e.currentTarget.style.color = ''
-                    }}
                     aria-label="Scroll to top"
                 >
+                    <style>
+                        {`
+                            @media (hover: hover) {
+                                button[aria-label="Scroll to top"]:hover {
+                                    background-color: ${accentColor} !important;
+                                    border-color: ${accentColor} !important;
+                                    color: white !important;
+                                }
+                            }
+                        `}
+                    </style>
                     <ArrowUp size={20} />
                 </motion.button>
             )}
