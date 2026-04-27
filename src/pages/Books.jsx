@@ -76,7 +76,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
         <>
             {/* Books Section */}
             <div className={isMobileSection ? "mb-12" : "mb-20"}>
-                <h2 className="text-[10px] font-medium uppercase tracking-widest mb-6 transition-colors duration-500" style={{ color: darkMode ? '#6b7280' : '#6b7280' }}>
+                <h2 className={`text-[10px] font-medium uppercase tracking-widest mb-6 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Books
                 </h2>
                 <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
@@ -119,7 +119,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Articles Section */}
             <div>
-                <h2 className="text-[10px] font-medium uppercase tracking-widest mb-6 transition-colors duration-500" style={{ color: darkMode ? '#6b7280' : '#6b7280' }}>
+                <h2 className={`text-[10px] font-medium uppercase tracking-widest mb-6 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Stuff
                 </h2>
                 <div className="space-y-3">
@@ -161,7 +161,7 @@ const Books = ({ darkMode, accentColor, isMobileSection = false }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                    <h1 className={`text-2xl sm:text-3xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
                         }`}>
                         Refs<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>

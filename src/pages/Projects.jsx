@@ -43,7 +43,7 @@ const Projects = ({ darkMode, accentColor, isMobileSection = false }) => {
                     className="group"
                 >
                     <div className="flex items-start justify-between gap-4 mb-2">
-                        <h3 className={`text-lg font-normal transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-white' : 'text-gray-900'
+                        <h3 className={`text-lg font-medium transition-opacity duration-200 group-hover:opacity-60 ${darkMode ? 'text-white' : 'text-gray-900'
                             }`}>
                             {project.title}
                         </h3>
@@ -81,7 +81,7 @@ const Projects = ({ darkMode, accentColor, isMobileSection = false }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                    <h1 className={`text-2xl sm:text-3xl font-normal mb-2 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
                         }`}>
                         Projects<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>

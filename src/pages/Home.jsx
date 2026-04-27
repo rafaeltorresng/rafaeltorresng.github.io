@@ -51,7 +51,7 @@ const Home = ({ darkMode, accentColor, isMobileSection = false }) => {
             {/* Current Work */}
             <div>
                 <div className="mb-2">
-                    <p className={`text-[10px] font-medium uppercase tracking-widest ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                    <p className={`text-[10px] font-medium uppercase tracking-widest ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                         Currently
                     </p>
                 </div>
@@ -81,7 +81,7 @@ const Home = ({ darkMode, accentColor, isMobileSection = false }) => {
             {/* Education */}
             <div>
                 <div className="flex items-center justify-between mb-2">
-                    <p className={`text-[10px] font-medium uppercase tracking-widest ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                    <p className={`text-[10px] font-medium uppercase tracking-widest ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                         Education
                     </p>
                 </div>

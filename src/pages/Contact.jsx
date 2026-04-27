@@ -5,7 +5,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
         <div className={isMobileSection ? "space-y-6" : "space-y-8"}>
             {/* Email */}
             <div>
-                <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Email
                 </p>
                 <a
@@ -19,7 +19,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Phone */}
             <div>
-                <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Phone
                 </p>
                 <a
@@ -33,7 +33,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
 
             {/* Location */}
             <div>
-                <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                <p className={`text-[10px] font-medium uppercase tracking-widest mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Location
                 </p>
                 <p className={`${isMobileSection ? 'text-base' : 'text-lg'} font-normal ${darkMode ? 'text-gray-400' : 'text-gray-600'
@@ -102,7 +102,7 @@ const Contact = ({ darkMode, accentColor, isMobileSection = false }) => {
             >
                 {/* Header */}
                 <div className="mb-16">
-                    <h1 className={`text-2xl font-normal mb-6 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                    <h1 className={`text-2xl sm:text-3xl font-normal mb-6 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
                         }`}>
                         Get In Touch<span className="transition-colors duration-500" style={{ color: accentColor }}>.</span>
                     </h1>
