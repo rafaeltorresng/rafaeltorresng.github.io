@@ -2,21 +2,31 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 
+const BUTTON_VISIBILITY_THRESHOLD = 300
+const TOP_RELEASE_THRESHOLD = 10
+const MAX_SCROLL_MONITOR_DURATION = 5000
+const SCROLL_MONITOR_INTERVAL = 300
+
 const ScrollToTopButton = ({ darkMode, accentColor }) => {
     const [isVisible, setIsVisible] = useState(false)
     const isScrollingToTop = useRef(false)
+    const scrollMonitorRef = useRef(null)
 
     useEffect(() => {
         const toggleVisibility = () => {
             // If we are currently in the process of scrolling to top, don't toggle
             if (isScrollingToTop.current) {
-                if (window.scrollY < 10) {
+                if (window.scrollY < TOP_RELEASE_THRESHOLD) {
                     isScrollingToTop.current = false
+                    if (scrollMonitorRef.current) {
+                        clearTimeout(scrollMonitorRef.current)
+                        scrollMonitorRef.current = null
+                    }
                 }
                 return
             }
 
-            if (window.scrollY > 300) {
+            if (window.scrollY > BUTTON_VISIBILITY_THRESHOLD) {
                 setIsVisible(true)
             } else {
                 setIsVisible(false)
@@ -31,6 +41,11 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
     }, [])
 
     const scrollToTop = () => {
+        if (scrollMonitorRef.current) {
+            clearTimeout(scrollMonitorRef.current)
+            scrollMonitorRef.current = null
+        }
+
         isScrollingToTop.current = true
         setIsVisible(false)
         
@@ -39,11 +54,36 @@ const ScrollToTopButton = ({ darkMode, accentColor }) => {
             behavior: 'smooth'
         })
 
-        // Backup plan: if scroll takes too long or doesn't trigger listener
-        setTimeout(() => {
-            isScrollingToTop.current = false
-        }, 1000)
+        const monitorScrollingFallback = (startTime) => {
+            if (window.scrollY < TOP_RELEASE_THRESHOLD) {
+                isScrollingToTop.current = false
+                scrollMonitorRef.current = null
+                return
+            }
+
+            if (Date.now() - startTime >= MAX_SCROLL_MONITOR_DURATION) {
+                isScrollingToTop.current = false
+                scrollMonitorRef.current = null
+                return
+            }
+
+            scrollMonitorRef.current = setTimeout(() => {
+                monitorScrollingFallback(startTime)
+            }, SCROLL_MONITOR_INTERVAL)
+        }
+
+        scrollMonitorRef.current = setTimeout(() => {
+            monitorScrollingFallback(Date.now())
+        }, SCROLL_MONITOR_INTERVAL)
     }
+
+    useEffect(() => {
+        return () => {
+            if (scrollMonitorRef.current) {
+                clearTimeout(scrollMonitorRef.current)
+            }
+        }
+    }, [])
 
     return (
         <AnimatePresence>
